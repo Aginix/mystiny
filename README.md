@@ -2,12 +2,15 @@
 
 Aginix Platform for building enterprise web application.
 
-## Packages
-
-- **core**
-
-
 ## Getting started
+
+### Run main app
+
+`yarn start`
+
+### Dev main app
+
+`yarn dev:app`
 
 ### Run Storybook to dev core components
 
