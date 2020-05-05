@@ -23,5 +23,7 @@ module.exports = {
     '@typescript-eslint/explicit-function-return-type': 'off',
     '@typescript-eslint/no-explicit-any': 'off',
     '@typescript-eslint/no-empty-function': 'off',
+    'react/no-unused-prop-types': 'off',
+    'no-unused-vars': 'off',
   },
 };

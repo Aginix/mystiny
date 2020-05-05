@@ -1,11 +1,11 @@
 import React from 'react';
 import Head from 'next/head';
 
-type Props = {
+export interface TitleProps {
   title: string;
-};
+}
 
-const Title = ({ title }: Props) => {
+const Title = ({ title }: TitleProps) => {
   return (
     <Head>
       <title>{title} | App</title>

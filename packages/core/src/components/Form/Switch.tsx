@@ -12,9 +12,9 @@ export interface SwitchProps extends Partial<RHFInputProps> {
 }
 
 const Switch = ({ name, SwitchProps, ...rest }: SwitchProps) => {
-  const { register, setValue, errors } = useFormContext();
+  const { register, setValue } = useFormContext();
 
-  function handleChange([e, value]: [any, any]) {
+  function handleChange([_, value]: [any, any]) {
     return value;
   }
 

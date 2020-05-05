@@ -4,7 +4,7 @@ import useMediaQuery from '@material-ui/core/useMediaQuery';
 import clsx from 'clsx';
 import React, { FC } from 'react';
 import { sidebarConfig } from './config';
-import { AppTheme } from '~/theme';
+import { AppTheme } from '@aginix/theme';
 import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
 
 const useStyles = makeStyles<AppTheme>(theme => ({

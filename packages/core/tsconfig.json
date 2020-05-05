@@ -14,7 +14,7 @@
     "noImplicitAny": false,
     "strictNullChecks": true,
     "suppressImplicitAnyIndexErrors": true,
-    "noUnusedLocals": true,
+    "noUnusedLocals": false,
     "noUnusedParameters": true,
     "allowSyntheticDefaultImports": true,
     "baseUrl": ".",

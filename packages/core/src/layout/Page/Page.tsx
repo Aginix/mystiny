@@ -3,7 +3,10 @@ import { PageTheme, pageTheme } from './PageThemeProvider';
 import { makeStyles } from '@material-ui/core';
 
 export const Theme = React.createContext<PageTheme>(pageTheme.home);
-export const DocumentTitle = React.createContext<[string, React.Dispatch<React.SetStateAction<string>>]>(['App', null]);
+export const DocumentTitle = React.createContext<[string, React.Dispatch<React.SetStateAction<string>>]>([
+  'App',
+  () => {},
+]);
 
 const useStyles = makeStyles(() => ({
   root: {

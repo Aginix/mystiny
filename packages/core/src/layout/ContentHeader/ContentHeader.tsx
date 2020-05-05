@@ -53,7 +53,7 @@ type ContentHeaderProps = {
 
 const ContentHeader: FC<ContentHeaderProps> = ({
   description,
-  title,
+  title = 'Content',
   titleComponent: TitleComponent = undefined,
   children,
 }) => {

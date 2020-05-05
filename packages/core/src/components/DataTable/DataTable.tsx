@@ -43,7 +43,6 @@ const DataTable: FC<DataTableProps> = ({
   actions,
   onStateChange,
   bulkActions,
-  options,
 }) => {
   const [search, setSearch] = useState<string | undefined>(undefined);
   const tableOptions = onStateChange ? DEFAULT_OPTIONS : {};

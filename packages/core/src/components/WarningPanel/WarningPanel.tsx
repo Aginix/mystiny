@@ -1,6 +1,6 @@
 import React, { FC } from 'react';
 import { Typography, makeStyles } from '@material-ui/core';
-import { AppTheme } from '~/theme';
+import { AppTheme } from '@aginix/theme';
 import ErrorOutline from '@material-ui/icons/ErrorOutline';
 
 const useErrorOutlineStyles = makeStyles<AppTheme>(theme => ({

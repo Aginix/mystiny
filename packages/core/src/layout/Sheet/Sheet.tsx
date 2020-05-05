@@ -1,7 +1,7 @@
 import React, { FC, ReactNode } from 'react';
 import { Typography, Paper, PaperProps } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
-import { AppTheme } from '~/theme';
+import { AppTheme } from '@aginix/theme';
 
 const useStyles = makeStyles((theme: AppTheme) => ({
   root: {
