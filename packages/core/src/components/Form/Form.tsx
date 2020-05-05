@@ -11,7 +11,7 @@ export interface Props {
   onSubmit?: (e?: React.BaseSyntheticEvent) => Promise<void>;
 }
 
-export const Form: React.FC<Props> = ({ children, onSubmit, form, loading }) => {
+export const Form: React.FC<Props> = ({ children, onSubmit, form, loading = false }) => {
   const { control } = form;
 
   return (

@@ -15,9 +15,9 @@
     "dist"
   ],
   "scripts": {
-    "dev": "microbundle watch --jsx React.createElement src/*!(.stories).{tsx,ts} --format cjs",
-    "build:watch": "microbundle watch --jsx React.createElement src/*!(.stories).{tsx,ts} --format cjs",
-    "build": "microbundle --jsx React.createElement src/*!(.stories).{tsx,ts} --format cjs",
+    "dev": "microbundle watch --jsx React.createElement \"src/*!(.stories).{tsx,ts}\" --format cjs",
+    "build:watch": "microbundle watch --jsx React.createElement \"src/*!(.stories).{tsx,ts}\" --format cjs",
+    "build": "microbundle --jsx React.createElement \"src/*!(.stories).{tsx,ts}\" --format cjs",
     "storybook": "start-storybook -p 6006",
     "storybook:build": "build-storybook",
     "test": "echo \"Error: run tests from root\" && exit 1"
