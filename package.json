@@ -20,7 +20,6 @@
     "dev:backend": "lerna run dev --scope @aginix/backend",
     "storybook": "yarn workspace @aginix/core storybook",
     "storybook:build": "yarn workspace @aginix/core storybook:build",
-    
     "lerna": "lerna"
   },
   "devDependencies": {

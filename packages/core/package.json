@@ -41,6 +41,7 @@
     "babel-plugin-module-resolver": "^4.0.0",
     "microbundle": "^0.11.0",
     "storybook-dark-mode": "^0.4.1",
+    "ts-loader": "^7.0.2",
     "typescript": "^3.8.3"
   },
   "dependencies": {
