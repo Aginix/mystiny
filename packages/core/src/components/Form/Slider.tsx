@@ -1,17 +1,17 @@
-import { Switch as MuiSwitch } from '@material-ui/core';
-import { SwitchProps as MuiSwitchProps } from '@material-ui/core/Switch';
+import { Slider as MuiSlider } from '@material-ui/core';
+import { SliderProps as MuiSliderProps } from '@material-ui/core/Slider';
 import React from 'react';
 import { RHFInput } from 'react-hook-form-input';
 
 import { useFormContext } from './Form';
 import { RHFInputProps } from './Props';
 
-export interface SwitchProps extends MuiSwitchProps {
+export interface SliderProps extends MuiSliderProps {
   name: string;
   RHFInputProps?: Partial<RHFInputProps>;
 }
 
-const Switch = ({ name, RHFInputProps, ...rest }: SwitchProps) => {
+const Slider = ({ name, RHFInputProps, ...rest }: SliderProps) => {
   const { register, setValue } = useFormContext();
 
   function handleChange([_, value]: [any, any]) {
@@ -21,15 +21,14 @@ const Switch = ({ name, RHFInputProps, ...rest }: SwitchProps) => {
   return (
     <RHFInput
       {...RHFInputProps}
-      type="checkbox"
       name={name}
       value={name}
       register={register}
       setValue={setValue}
       onChangeEvent={handleChange}
-      as={<MuiSwitch {...rest} />}
+      as={<MuiSlider {...rest} />}
     />
   );
 };
 
-export default Switch;
+export default Slider;

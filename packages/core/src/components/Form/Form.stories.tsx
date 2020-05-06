@@ -5,9 +5,12 @@ import {
   Typography,
   FormControl,
   FormControlLabel,
+  FormGroup,
   InputLabel,
   FormHelperText,
   MenuItem,
+  Radio,
+  FormLabel,
 } from '@material-ui/core';
 import { action } from '@storybook/addon-actions';
 import React, { useState } from 'react';
@@ -17,6 +20,9 @@ import Form from './Form';
 import TextField from './TextField';
 import Select from './Select';
 import Switch from './Switch';
+import Slider from './Slider';
+import RadioGroup from './RadioGroup';
+import Checkbox from './Checkbox';
 
 export default {
   title: 'Form (React Hook Form)',
@@ -77,7 +83,32 @@ export const Default = () => {
             </Select>
           </Grid>
           <Grid item md={6}>
+            <Slider name="Volume" />
+          </Grid>
+          <Grid item md={6}>
+            <FormControl component="fieldset">
+              <FormLabel component="legend">Gender</FormLabel>
+              <RadioGroup name="gender">
+                <FormControlLabel value="female" control={<Radio />} label="Female" />
+                <FormControlLabel value="male" control={<Radio />} label="Male" />
+                <FormControlLabel value="other" control={<Radio />} label="Other" />
+                <FormControlLabel value="disabled" disabled control={<Radio />} label="(Disabled option)" />
+              </RadioGroup>
+            </FormControl>
+          </Grid>
+          <Grid item md={6}>
             <FormControlLabel control={<Switch name="active" value="true" />} label="Active" />
+          </Grid>
+          <Grid item md={6}>
+            <FormControl component="fieldset">
+              <FormLabel component="legend">Assign responsibility</FormLabel>
+              <FormGroup>
+                <FormControlLabel control={<Checkbox name="gilad" />} label="Gilad Gray" />
+                <FormControlLabel control={<Checkbox name="jason" />} label="Jason Killian" />
+                <FormControlLabel control={<Checkbox name="antoine" />} label="Antoine Llorca" />
+              </FormGroup>
+              <FormHelperText>Be careful</FormHelperText>
+            </FormControl>
           </Grid>
           <Grid item xs={12}>
             <Button type="submit" variant="contained" color="primary">

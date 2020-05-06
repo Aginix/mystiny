@@ -1,17 +1,17 @@
-import { Switch as MuiSwitch } from '@material-ui/core';
-import { SwitchProps as MuiSwitchProps } from '@material-ui/core/Switch';
+import { RadioGroup as MuiRadioGroup } from '@material-ui/core';
+import { RadioGroupProps as MuiRadioGroupProps } from '@material-ui/core/RadioGroup';
 import React from 'react';
 import { RHFInput } from 'react-hook-form-input';
 
 import { useFormContext } from './Form';
 import { RHFInputProps } from './Props';
 
-export interface SwitchProps extends MuiSwitchProps {
+export interface RadioGroupProps extends MuiRadioGroupProps {
   name: string;
   RHFInputProps?: Partial<RHFInputProps>;
 }
 
-const Switch = ({ name, RHFInputProps, ...rest }: SwitchProps) => {
+const RadioGroup = ({ name, RHFInputProps, ...rest }: RadioGroupProps) => {
   const { register, setValue } = useFormContext();
 
   function handleChange([_, value]: [any, any]) {
@@ -21,15 +21,14 @@ const Switch = ({ name, RHFInputProps, ...rest }: SwitchProps) => {
   return (
     <RHFInput
       {...RHFInputProps}
-      type="checkbox"
       name={name}
       value={name}
       register={register}
       setValue={setValue}
       onChangeEvent={handleChange}
-      as={<MuiSwitch {...rest} />}
+      as={<MuiRadioGroup aria-label={name} name={name} {...rest} />}
     />
   );
 };
 
-export default Switch;
+export default RadioGroup;

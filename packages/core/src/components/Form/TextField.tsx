@@ -14,8 +14,6 @@ export type TextFieldProps = MuiTextFieldProps & {
 const TextField = ({ name, RHFInputProps, ...rest }: TextFieldProps) => {
   const { register, setValue, errors } = useFormContext();
 
-  console.log(errors[name]);
-
   return (
     <RHFInput
       {...RHFInputProps}

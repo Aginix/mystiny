@@ -6,10 +6,10 @@ import { RHFInput } from 'react-hook-form-input';
 import { useFormContext } from './Form';
 import { RHFInputProps } from './Props';
 
-export type SelectProps = MuiSelectProps & {
+export interface SelectProps extends MuiSelectProps {
   name: string;
   RHFInputProps?: Partial<RHFInputProps>;
-};
+}
 
 const Select = ({ name, RHFInputProps, ...rest }: SelectProps) => {
   const { register, setValue, errors } = useFormContext();
