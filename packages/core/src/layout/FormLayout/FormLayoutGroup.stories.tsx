@@ -10,7 +10,7 @@ export default {
 export const twoColumns = () => (
   <FormLayout>
     <FormLayoutGroup title="Group Title" helpText="Help text.">
-      <TextField className="item" label="Width" fullWidth />
+      <TextField label="Width" fullWidth />
       <TextField label="Height" fullWidth />
     </FormLayoutGroup>
   </FormLayout>
@@ -19,7 +19,7 @@ export const twoColumns = () => (
 export const threeColumns = () => (
   <FormLayout>
     <FormLayoutGroup>
-      <TextField className="item" label="Width" fullWidth />
+      <TextField label="Width" fullWidth />
       <TextField label="Height" fullWidth />
       <TextField label="Height" fullWidth />
     </FormLayoutGroup>
@@ -29,7 +29,7 @@ export const threeColumns = () => (
 export const fourColumns = () => (
   <FormLayout>
     <FormLayoutGroup>
-      <TextField className="item" label="Width" fullWidth />
+      <TextField label="Width" fullWidth />
       <TextField label="Height" fullWidth />
       <TextField label="Height" fullWidth />
       <TextField label="Height" fullWidth />
@@ -40,7 +40,7 @@ export const fourColumns = () => (
 export const twoColumnsCondensed = () => (
   <FormLayout>
     <FormLayoutGroup condensed>
-      <TextField className="item" label="Width" fullWidth />
+      <TextField label="Width" fullWidth />
       <TextField label="Height" fullWidth />
     </FormLayoutGroup>
   </FormLayout>
@@ -49,7 +49,7 @@ export const twoColumnsCondensed = () => (
 export const threeColumnsCondensed = () => (
   <FormLayout>
     <FormLayoutGroup condensed>
-      <TextField className="item" label="Width" fullWidth />
+      <TextField label="Width" fullWidth />
       <TextField label="Height" fullWidth />
       <TextField label="Height" fullWidth />
     </FormLayoutGroup>
@@ -59,7 +59,7 @@ export const threeColumnsCondensed = () => (
 export const fourColumnsCondensed = () => (
   <FormLayout>
     <FormLayoutGroup condensed>
-      <TextField className="item" label="Width" fullWidth />
+      <TextField label="Width" fullWidth />
       <TextField label="Height" fullWidth />
       <TextField label="Height" fullWidth />
       <TextField label="Height" fullWidth />
