@@ -1,7 +1,7 @@
 const path = require('path');
 
 module.exports = {
-  stories: ['../src/layout/**/*.stories.tsx', '../src/components/**/*.stories.tsx'],
+  stories: ['../src/components/**/*.stories.tsx'],
   addons: [
     '@storybook/addon-actions',
     '@storybook/addon-links',

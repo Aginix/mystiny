@@ -2,10 +2,10 @@ import React from 'react';
 import Page, { pageTheme } from './Page';
 import SettingsIcon from '@material-ui/icons/Settings';
 import { Typography } from '@material-ui/core';
-import Header from '~/layout/Header';
-import Content from '~/layout/Content';
-import HeaderLabel from '~/layout/HeaderLabel';
-import HeaderActionMenu from '~/layout/HeaderActionMenu';
+import Header from './Header';
+import Content from './Content';
+import HeaderLabel from './HeaderLabel';
+import HeaderActionMenu from './HeaderActionMenu';
 
 export default {
   title: 'Layout',

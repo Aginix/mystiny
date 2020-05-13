@@ -2,7 +2,7 @@ import React, { Fragment, ReactNode, CSSProperties, FC } from 'react';
 import { Typography, Tooltip, makeStyles } from '@material-ui/core';
 import { AppTheme } from '@aginix/theme';
 
-import { Theme } from '~/layout/Page/Page';
+import { Theme } from '../Page/Page';
 import Waves from './Waves';
 import Title from '../Title';
 
