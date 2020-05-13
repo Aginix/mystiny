@@ -5,7 +5,6 @@ export * from './Header';
 export * from './HeaderActionMenu';
 export * from './HeaderLabel';
 export * from './Page';
-export * from './Root';
 export * from './Sheet';
 export * from './Sidebar';
 export * from './Title';
