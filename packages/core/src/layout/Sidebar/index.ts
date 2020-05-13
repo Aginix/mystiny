@@ -1,4 +1,4 @@
-export * from './Bar';
+export * from './Sidebar';
 export * from './Page';
-export * from './Items';
+export * from './SidebarItems';
 export * from './config';
