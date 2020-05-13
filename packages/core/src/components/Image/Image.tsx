@@ -1,0 +1,33 @@
+import React from 'react';
+
+interface SourceSet {
+  source: string;
+  descriptor?: string;
+}
+
+type CrossOrigin = 'anonymous' | 'use-credentials' | '' | undefined;
+
+export interface ImageProps extends React.HTMLProps<HTMLImageElement> {
+  alt: string;
+  source: string;
+  crossOrigin?: CrossOrigin;
+  sourceSet?: SourceSet[];
+  onLoad?(): void;
+  onError?(): void;
+}
+
+const Image = ({ sourceSet, source, crossOrigin, ...rest }: ImageProps) => {
+  const finalSourceSet = sourceSet
+    ? sourceSet.map(({ source: subSource, descriptor }) => `${subSource} ${descriptor}`).join(',')
+    : null;
+
+  return finalSourceSet ? (
+    // eslint-disable-next-line jsx-a11y/alt-text
+    <img src={source} srcSet={finalSourceSet} crossOrigin={crossOrigin} {...rest} />
+  ) : (
+    // eslint-disable-next-line jsx-a11y/alt-text
+    <img src={source} {...rest} crossOrigin={crossOrigin} />
+  );
+};
+
+export default Image;
