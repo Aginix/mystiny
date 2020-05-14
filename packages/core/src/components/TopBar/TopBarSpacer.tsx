@@ -12,9 +12,9 @@ const useStyles = makeStyles((theme: Theme) => ({
   },
 }));
 
-const TopNavbarSpacer = () => {
+const TopbarSpacer = () => {
   const classes = useStyles();
   return <div className={classes.toolbar} />;
 };
 
-export default TopNavbarSpacer;
+export default TopbarSpacer;
