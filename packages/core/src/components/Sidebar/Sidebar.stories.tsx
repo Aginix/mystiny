@@ -2,6 +2,7 @@ import React from 'react';
 import SettingsIcon from '@material-ui/icons/Settings';
 import ThumbUpIcon from '@material-ui/icons/ThumbUp';
 import TimelineIcon from '@material-ui/icons/Timeline';
+import HomeIcon from '@material-ui/icons/Home';
 import DashboardIcon from '@material-ui/icons/Dashboard';
 import AddIcon from '@material-ui/icons/AddCircleSharp';
 import AssessmentIcon from '@material-ui/icons/Assessment';
@@ -25,6 +26,11 @@ export const sidebar = () => (
           <SidebarSpacer />
         </Hidden>
         <SidebarDivider />
+
+        <SidebarItem text="No Icon" />
+        <SidebarSpacer />
+        <SidebarItem text="Home" icon={<HomeIcon />} />
+        <SidebarSpacer />
         <SidebarItem text="Analytics" icon={<TimelineIcon />}>
           <SidebarItem text="Dashboard" icon={<DashboardIcon />} />
           <SidebarItem text="Report" icon={<AssessmentIcon />} />
@@ -48,5 +54,5 @@ export const sidebar = () => (
 );
 
 sidebar.story = {
-  name: 'Sidebar',
+  name: 'Full sidebar',
 };
