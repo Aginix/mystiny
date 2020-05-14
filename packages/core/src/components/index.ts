@@ -13,4 +13,4 @@ export * from './Page';
 export * from './Sheet';
 export * from './Sidebar';
 export * from './Title';
-export * from './TopNavbar';
+export * from './TopBar';
