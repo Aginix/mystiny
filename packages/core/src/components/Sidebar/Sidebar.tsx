@@ -1,4 +1,4 @@
-import { makeStyles, Drawer, Hidden, NoSsr } from '@material-ui/core';
+import { makeStyles, Drawer, Hidden, NoSsr, Toolbar } from '@material-ui/core';
 import { useTheme } from '@material-ui/core/styles';
 import useMediaQuery from '@material-ui/core/useMediaQuery';
 import clsx from 'clsx';
@@ -21,12 +21,13 @@ const useStyles = makeStyles<AppTheme>(theme => ({
   },
 }));
 
-type Props = {
+export interface SidebarProps {
   open?: boolean;
   handleClose?: () => void;
-};
+  addSpaceForTopBar?: boolean;
+}
 
-export const Sidebar: FC<Props> = ({ children, open, handleClose }) => {
+export const Sidebar: FC<SidebarProps> = ({ children, open, handleClose, addSpaceForTopBar }) => {
   const classes = useStyles();
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down('xs'));
@@ -36,7 +37,7 @@ export const Sidebar: FC<Props> = ({ children, open, handleClose }) => {
   return (
     <NoSsr>
       <nav>
-        <Hidden smUp implementation="css">
+        <Hidden xsUp implementation="css">
           <Drawer
             variant="temporary"
             onClose={handleClose}
@@ -61,6 +62,7 @@ export const Sidebar: FC<Props> = ({ children, open, handleClose }) => {
               paper: classes.drawerOpen,
             }}
           >
+            {addSpaceForTopBar ? <Toolbar /> : null}
             {children}
           </Drawer>
         </Hidden>

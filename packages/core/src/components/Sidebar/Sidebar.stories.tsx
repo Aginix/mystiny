@@ -18,38 +18,36 @@ export default {
 
 export const sidebar = () => (
   <SidebarContext.Provider value={false}>
-    <SidebarPage>
-      <Sidebar open={true}>
-        <Hidden smUp>
-          <SidebarSpacer />
-          <SidebarItem text="Aginix Technologies" />
-          <SidebarSpacer />
-        </Hidden>
-        <SidebarDivider />
+    <Sidebar open={true} addSpaceForTopBar>
+      <Hidden smUp>
+        <SidebarSpacer />
+        <SidebarItem text="Aginix Technologies" />
+        <SidebarSpacer />
+      </Hidden>
+      <SidebarDivider />
 
-        <SidebarItem text="No Icon" />
-        <SidebarSpacer />
-        <SidebarItem text="Home" icon={<HomeIcon />} />
-        <SidebarSpacer />
-        <SidebarItem text="Analytics" icon={<TimelineIcon />}>
-          <SidebarItem text="Dashboard" icon={<DashboardIcon />} />
-          <SidebarItem text="Report" icon={<AssessmentIcon />} />
-        </SidebarItem>
-        <SidebarDivider />
-        <SidebarItem text="Marketing" icon={<ThumbUpIcon />}>
-          <SidebarItem text="Overview" />
-        </SidebarItem>
-        <SidebarDivider />
-        <SidebarSpacer />
-        <SidebarSpacer />
-        <SidebarSpacer />
-        <SidebarItem text="Add a sale channel" icon={<AddIcon />} />
-        <SidebarSpace />
-        <SidebarItem text="Settings" icon={<SettingsIcon />} />
-        <SidebarSpacer />
-        <SidebarSpacer />
-      </Sidebar>
-    </SidebarPage>
+      <SidebarItem text="No Icon" />
+      <SidebarSpacer />
+      <SidebarItem text="Home" icon={<HomeIcon />} />
+      <SidebarSpacer />
+      <SidebarItem text="Analytics" icon={<TimelineIcon />}>
+        <SidebarItem text="Dashboard" icon={<DashboardIcon />} />
+        <SidebarItem text="Report" icon={<AssessmentIcon />} />
+      </SidebarItem>
+      <SidebarDivider />
+      <SidebarItem text="Marketing" icon={<ThumbUpIcon />}>
+        <SidebarItem text="Overview" />
+      </SidebarItem>
+      <SidebarDivider />
+      <SidebarSpacer />
+      <SidebarSpacer />
+      <SidebarSpacer />
+      <SidebarItem text="Add a sale channel" icon={<AddIcon />} />
+      <SidebarSpace />
+      <SidebarItem text="Settings" icon={<SettingsIcon />} />
+      <SidebarSpacer />
+      <SidebarSpacer />
+    </Sidebar>
   </SidebarContext.Provider>
 );
 
