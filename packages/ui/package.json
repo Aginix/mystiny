@@ -1,12 +1,21 @@
 {
   "name": "@mystiny/ui",
-  "version": "1.0.0",
+  "version": "1.0.0-alpha.1",
   "description": "> TODO: description",
   "author": "Nonpawit Teerachetmongkol <nonpawit.tee@aginix.tech>",
   "homepage": "",
   "license": "ISC",
   "main": "dist/index.ts.js",
   "typings": "dist/index.d.ts",
+  "private": false,
+  "publishConfig": {
+    "access": "public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/aginix/mystiny",
+    "directory": "packages/ui"
+  },
   "directories": {
     "src": "src",
     "test": "__tests__"
@@ -47,7 +56,7 @@
     "@material-ui/core": "^4.9.12",
     "@material-ui/icons": "^4.9.1",
     "@material-ui/lab": "^4.0.0-alpha.51",
-    "@mystiny/theme": "^1.0.0",
+    "@mystiny/theme": "^1.0.0-alpha.1",
     "clsx": "^1.1.0",
     "material-ui-popup-state": "^1.5.4",
     "react-addons-text-content": "^0.0.4",

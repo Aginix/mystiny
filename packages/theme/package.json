@@ -1,12 +1,21 @@
 {
   "name": "@mystiny/theme",
-  "version": "1.0.0",
+  "version": "1.0.0-alpha.1",
   "description": "> TODO: description",
   "author": "Nonpawit Teerachetmongkol <nonpawit.tee@aginix.tech>",
   "homepage": "",
   "license": "ISC",
   "main": "dist/index.ts.js",
   "typings": "dist/index.d.ts",
+  "private": false,
+  "publishConfig": {
+    "access": "public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/aginix/mystiny",
+    "directory": "packages/theme"
+  },
   "directories": {
     "src": "src",
     "test": "__tests__"
