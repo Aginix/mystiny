@@ -1,8 +1,8 @@
 {
-  "name": "@aginix/theme",
+  "name": "@mystiny/theme",
   "version": "0.0.0",
   "description": "> TODO: description",
-  "author": "Nonpawit Teerachetmongkol <nonpawit.tee@gmail.com>",
+  "author": "Nonpawit Teerachetmongkol <nonpawit.tee@aginix.tech>",
   "homepage": "",
   "license": "ISC",
   "main": "dist/index.ts.js",

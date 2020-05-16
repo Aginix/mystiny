@@ -1,5 +1,5 @@
 import Head from 'next/head';
-import { PageTitle } from '@aginix/core';
+import { PageTitle } from '@mystiny/core';
 
 export default function Home() {
   return (

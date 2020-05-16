@@ -1,6 +1,6 @@
-# Aginix Starter 
+# Mystiny
 
-Aginix Platform for building enterprise web application.
+Mystiny is a platform for building enterprise web application.
 
 ## Getting started
 

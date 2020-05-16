@@ -1,4 +1,4 @@
-# @mystiny/theme
+# @mystiny/ui
 
 ## License
 

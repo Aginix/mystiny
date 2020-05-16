@@ -1,5 +1,5 @@
 {
-  "name": "@aginix/app",
+  "name": "app",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -8,8 +8,8 @@
     "start": "next start"
   },
   "dependencies": {
-    "@aginix/core": "^0.0.0",
-    "@aginix/theme": "^0.0.0",
+    "@mystiny/ui": "^0.0.0",
+    "@mystiny/theme": "^0.0.0",
     "@next/bundle-analyzer": "^9.3.6",
     "@sindresorhus/is": "^2.1.1",
     "babel-plugin-import": "^1.13.0",

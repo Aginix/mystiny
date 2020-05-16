@@ -2,7 +2,7 @@ import CssBaseline from '@material-ui/core/CssBaseline';
 import { ThemeProvider } from '@material-ui/core/styles';
 import { AppProps } from 'next/app';
 
-import { lightTheme, darkTheme, ThemeContext, useThemeType, ThemeContextType } from '@aginix/theme';
+import { lightTheme, darkTheme, ThemeContext, useThemeType, ThemeContextType } from '@mystiny/theme';
 import React, { useEffect, useState, useMemo } from 'react';
 import Head from 'next/head';
 
