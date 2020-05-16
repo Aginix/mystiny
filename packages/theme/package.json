@@ -1,6 +1,6 @@
 {
   "name": "@mystiny/theme",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "description": "> TODO: description",
   "author": "Nonpawit Teerachetmongkol <nonpawit.tee@aginix.tech>",
   "homepage": "",
@@ -17,8 +17,7 @@
   "scripts": {
     "dev": "microbundle watch --jsx React.createElement --format cjs",
     "build:watch": "microbundle watch --jsx React.createElement --format cjs",
-    "build": "microbundle --jsx React.createElement --format cjs",
-    "test": "echo \"Error: run tests from root\" && exit 1"
+    "build": "microbundle --jsx React.createElement --format cjs"
   },
   "dependencies": {
     "@material-ui/core": "^4.9.12"

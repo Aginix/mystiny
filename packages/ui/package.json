@@ -1,6 +1,6 @@
 {
   "name": "@mystiny/ui",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "description": "> TODO: description",
   "author": "Nonpawit Teerachetmongkol <nonpawit.tee@aginix.tech>",
   "homepage": "",
@@ -19,8 +19,7 @@
     "build:watch": "microbundle watch --jsx React.createElement \"src/*!(.stories).{tsx,ts}\" --format cjs",
     "build": "microbundle --jsx React.createElement \"src/*.{tsx,ts}\" --no-compress --format cjs",
     "storybook": "start-storybook -p 6006",
-    "storybook:build": "build-storybook",
-    "test": "echo \"Error: run tests from root\" && exit 1"
+    "storybook:build": "build-storybook"
   },
   "peerDependencies": {
     "react": ">= 16.0.0"
