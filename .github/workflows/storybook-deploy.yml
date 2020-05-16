@@ -45,6 +45,8 @@ jobs:
           registry-url: https://registry.npmjs.org/ # Needed for auth
       - name: yarn install
         run: yarn install --frozen-lockfile
+      - name: build theme
+        run: yarn workspace @mystiny/theme build
       - name: build storybook
         run: yarn workspace @mystiny/ui build-storybook
       - name: deploy storybook to gh-pages
