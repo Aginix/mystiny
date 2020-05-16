@@ -16,10 +16,9 @@
     "lint": "lerna run lint --since origin/master --",
     "lint:all": "lerna run lint --",
     "dev:all": "lerna run dev --parallel",
-    "dev:app": "lerna run dev --scope @aginix/app",
-    "dev:backend": "lerna run dev --scope @aginix/backend",
-    "storybook": "yarn workspace @aginix/core storybook",
-    "storybook:build": "yarn workspace @aginix/core storybook:build",
+    "dev:app": "lerna run dev --scope @mystiny/app",
+    "storybook": "yarn workspace @mystiny/ui storybook",
+    "storybook:build": "yarn workspace @mystiny/ui storybook:build",
     "lerna": "lerna"
   },
   "devDependencies": {
