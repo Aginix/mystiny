@@ -1,8 +1,8 @@
 import React, { FC } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import { isElementOfType, wrapWithComponent } from '../../utilities';
-import { FormLayoutGroup } from './FormLayoutGroup';
-import { Item } from './Item';
+import FormLayoutGroup from '../FormLayoutGroup';
+import { FormLayoutItem } from './FormLayoutItem';
 
 const useStyles = makeStyles((theme) => ({
   formLayout: {
@@ -11,7 +11,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export const FormLayout: FC<{}> = ({ children }) => {
+const FormLayout: FC<{}> = ({ children }) => {
   const classes = useStyles({});
   return <div className={classes.formLayout}>{React.Children.map(children as any, wrapChildren)}</div>;
 };
@@ -21,5 +21,7 @@ function wrapChildren(child: React.ReactElement<{}>, index: number) {
     return child;
   }
   const props = { key: index };
-  return wrapWithComponent(child, Item, props);
+  return wrapWithComponent(child, FormLayoutItem, props);
 }
+
+export default FormLayout;

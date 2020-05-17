@@ -1,7 +1,7 @@
 import React, { FC } from 'react';
 import clsx from 'clsx';
 import { makeStyles, Theme } from '@material-ui/core/styles';
-import { AppBar, CssBaseline, Toolbar, IconButton, Menu, MenuItem, Typography, NoSsr, Hidden } from '@material-ui/core';
+import { AppBar, CssBaseline, Toolbar, IconButton, NoSsr, Hidden } from '@material-ui/core';
 import MenuIcon from '@material-ui/icons/Menu';
 import { sidebarConfig } from '../Sidebar';
 
@@ -86,18 +86,6 @@ const TopBar: FC<TopBarProps> = ({ children, handleOpen, open }) => {
               </IconButton>
             </Hidden>
             {children}
-            {/*
-            <div className={classes.sectionMobile}>
-              <IconButton
-                aria-label="show more"
-                aria-controls={mobileMenuId}
-                aria-haspopup="true"
-                onClick={handleMobileMenuOpen}
-                color="inherit"
-              >
-                <MoreIcon />
-              </IconButton>
-            </div> */}
           </Toolbar>
         </NoSsr>
       </AppBar>

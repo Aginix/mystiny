@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { FC } from 'react';
 import clsx from 'clsx';
 
 import { makeStyles } from '@material-ui/core/styles';
@@ -12,11 +12,9 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export interface ItemProps {
-  children?: React.ReactNode;
-}
+export interface FormLayoutItemProps {}
 
-export function Item(props: ItemProps) {
+export const FormLayoutItem: FC<FormLayoutItemProps> = ({ children }) => {
   const classes = useStyles({});
-  return <div className={clsx(classes.item, 'item')}>{props.children}</div>;
-}
+  return <div className={clsx(classes.item, 'item')}>{children}</div>;
+};

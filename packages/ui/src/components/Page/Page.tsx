@@ -19,11 +19,11 @@ const useStyles = makeStyles(() => ({
   },
 }));
 
-type Props = {
+export interface PageProps {
   theme?: PageTheme;
-};
+}
 
-const Page: FC<Props> = ({ theme = pageTheme.home, children }) => {
+const Page: FC<PageProps> = ({ theme = pageTheme.home, children }) => {
   const [title, setTitle] = useState('App');
   const classes = useStyles();
 

@@ -58,7 +58,7 @@ export interface TopBarNotificationProps {
   loading?: boolean;
 }
 
-export const TopBarNotification = ({ count = 0, messageList, loading }: TopBarNotificationProps) => {
+const TopBarNotification = ({ count = 0, messageList, loading }: TopBarNotificationProps) => {
   const classes = useStyles({});
   const popupState = usePopupState({ variant: 'popper', popupId: 'toggle-notifications' });
   return (
@@ -119,3 +119,5 @@ export const TopBarNotification = ({ count = 0, messageList, loading }: TopBarNo
     </NoSsr>
   );
 };
+
+export default TopBarNotification;

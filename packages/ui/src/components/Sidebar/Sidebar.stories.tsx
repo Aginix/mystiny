@@ -9,7 +9,6 @@ import AssessmentIcon from '@material-ui/icons/Assessment';
 import { Hidden } from '@material-ui/core';
 import { Sidebar } from './Sidebar';
 import { SidebarSpacer, SidebarSpace, SidebarItem, SidebarDivider } from './SidebarItems';
-import { SidebarPage } from './Page';
 import { SidebarContext } from './config';
 
 export default {

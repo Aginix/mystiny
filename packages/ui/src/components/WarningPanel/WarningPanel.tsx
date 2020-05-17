@@ -46,7 +46,7 @@ type Props = {
   title?: string;
 };
 
-const WarningPanel: FC<Props> = (props) => {
+export const WarningPanel: FC<Props> = (props) => {
   const classes = useStyles(props);
   const { title, message, children } = props;
   return (

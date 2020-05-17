@@ -1,7 +1,7 @@
 import React, { FC } from 'react';
 import clsx from 'clsx';
 import { makeStyles, fade } from '@material-ui/core/styles';
-import { Item } from './Item';
+import { FormLayoutItem } from '../FormLayout';
 import { wrapWithComponent, useUniqueId } from '../../utilities';
 import { AppTheme } from '@mystiny/theme';
 import { Typography } from '@material-ui/core';
@@ -67,7 +67,7 @@ export const FormLayoutGroup: FC<FormLayoutGroupProps> = ({ title, condensed, he
     );
   }
 
-  const itemsMarkup = React.Children.map(children, (child) => wrapWithComponent(child, Item, {}));
+  const itemsMarkup = React.Children.map(children, (child) => wrapWithComponent(child, FormLayoutItem, {}));
 
   return (
     <div role="group" className={className} aria-labelledby={titleID} aria-describedby={helpTextID}>
@@ -77,3 +77,5 @@ export const FormLayoutGroup: FC<FormLayoutGroupProps> = ({ title, condensed, he
     </div>
   );
 };
+
+export default FormLayoutGroup;

@@ -54,7 +54,7 @@ const useStyles = makeStyles<AppTheme>((theme) => ({
 
 type HeaderStyles = ReturnType<typeof useStyles>;
 
-type Props = {
+export interface HeaderProps {
   component?: ReactNode;
   pageTitleOverride?: string;
   style?: CSSProperties;
@@ -63,23 +63,23 @@ type Props = {
   tooltip?: string;
   type?: string;
   typeLink?: string;
-};
+}
 
 type TypeFragmentProps = {
   classes: HeaderStyles;
-  type?: Props['title'];
-  typeLink?: Props['typeLink'];
+  type?: HeaderProps['title'];
+  typeLink?: HeaderProps['typeLink'];
 };
 
 type TitleFragmentProps = {
   classes: HeaderStyles;
   pageTitle: string | ReactNode;
-  tooltip?: Props['tooltip'];
+  tooltip?: HeaderProps['tooltip'];
 };
 
 type SubtitleFragmentProps = {
   classes: HeaderStyles;
-  subtitle?: Props['subtitle'];
+  subtitle?: HeaderProps['subtitle'];
 };
 
 const TypeFragment: FC<TypeFragmentProps> = ({ type, typeLink, classes }) => {
@@ -134,7 +134,7 @@ const SubtitleFragment: FC<SubtitleFragmentProps> = ({ classes, subtitle }) => {
   );
 };
 
-export const Header: FC<Props> = ({ children, pageTitleOverride, style, subtitle, title, tooltip, type, typeLink }) => {
+const Header: FC<HeaderProps> = ({ children, pageTitleOverride, style, subtitle, title, tooltip, type, typeLink }) => {
   const classes = useStyles();
   const documentTitle = pageTitleOverride || title;
   const pageTitle = title || pageTitleOverride;
