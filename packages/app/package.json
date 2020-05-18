@@ -8,7 +8,7 @@
     "start": "next start"
   },
   "dependencies": {
-    "@mystiny/theme": "^1.0.0-alpha.1",
+    "@mystiny/theme": "^1.0.1-alpha.1",
     "@mystiny/ui": "^1.0.1-alpha.1",
     "@next/bundle-analyzer": "^9.3.6",
     "@sindresorhus/is": "^2.1.1",
