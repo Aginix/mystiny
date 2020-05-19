@@ -2,7 +2,7 @@ import React from 'react';
 import SettingsIcon, { TextField } from '@material-ui/core';
 import { Typography } from '@material-ui/core';
 import PersonIcon from '@material-ui/icons/Person';
-import { TopBarNotification } from './TopBarNotification';
+import TopBarNotification from './TopBarNotification';
 
 export default {
   title: 'Topbar / Notification',

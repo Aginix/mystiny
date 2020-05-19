@@ -3,9 +3,8 @@ import PersonIcon from '@material-ui/icons/Person';
 import { Typography } from '@material-ui/core';
 import TopBar from './TopBar';
 import TopBarUserMenu from './TopBarUserMenu';
-import TopBarSpacer from './TopBarSpacer';
 import { TopBarSpace } from './TopBarSpace';
-import { TopBarNotification } from './TopBarNotification';
+import TopBarNotification from './TopBarNotification';
 
 export default {
   title: 'Topbar / Layout',

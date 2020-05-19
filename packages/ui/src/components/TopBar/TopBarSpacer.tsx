@@ -1,4 +1,4 @@
-import React, { FC, useState, memo } from 'react';
+import React from 'react';
 import { makeStyles, Theme } from '@material-ui/core/styles';
 
 const useStyles = makeStyles((theme: Theme) => ({
@@ -12,7 +12,7 @@ const useStyles = makeStyles((theme: Theme) => ({
   },
 }));
 
-export const TopbarSpacer = () => {
+export const TopBarSpacer = () => {
   const classes = useStyles();
   return <div className={classes.toolbar} />;
 };

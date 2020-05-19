@@ -1,6 +1,4 @@
 import React from 'react';
-import SettingsIcon, { TextField } from '@material-ui/core';
-import { Typography } from '@material-ui/core';
 import PersonIcon from '@material-ui/icons/Person';
 import TopBarUserMenu from './TopBarUserMenu';
 
