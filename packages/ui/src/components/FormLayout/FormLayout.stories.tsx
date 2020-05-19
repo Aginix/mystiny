@@ -1,8 +1,6 @@
 import React from 'react';
-import SettingsIcon, { TextField } from '@material-ui/core';
-import { Typography } from '@material-ui/core';
-import { FormLayout } from './FormLayout';
-import { FormLayoutGroup } from './FormLayoutGroup';
+import { TextField } from '@material-ui/core';
+import FormLayout from './FormLayout';
 
 export default {
   title: 'FormLayout',
