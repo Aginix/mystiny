@@ -4,7 +4,6 @@ import { AppTheme } from '@mystiny/theme';
 
 import { Theme } from '../Page/Page';
 import Waves from './Waves';
-import Title from '../Title';
 
 const useStyles = makeStyles<AppTheme>((theme) => ({
   header: {
@@ -142,7 +141,6 @@ const Header: FC<HeaderProps> = ({ children, pageTitleOverride, style, subtitle,
 
   return (
     <Fragment>
-      <Title title={defaultTitle} />
       <Theme.Consumer>
         {(theme) => (
           <header style={style} className={classes.header}>

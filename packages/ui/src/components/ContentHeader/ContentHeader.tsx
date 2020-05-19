@@ -1,6 +1,5 @@
 import React, { ComponentType, Fragment, FC } from 'react';
 import { Typography, makeStyles } from '@material-ui/core';
-import Title from '../Title';
 
 const useStyles = makeStyles((theme) => ({
   container: {
@@ -63,7 +62,6 @@ const ContentHeader: FC<ContentHeaderProps> = ({
 
   return (
     <Fragment>
-      <Title title={title} />
       <div className={classes.container}>
         <div className={classes.leftItemsBox}>
           {renderedTitle}
