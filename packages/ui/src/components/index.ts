@@ -1,3 +1,6 @@
+export { default as BottomLink } from './BottomLink';
+export * from './BottomLink';
+
 export { default as Content } from './Content';
 export * from './Content';
 
@@ -30,6 +33,9 @@ export * from './HeaderLabel';
 
 export { default as Image } from './Image';
 export * from './Image';
+
+export { default as InfoCard } from './InfoCard';
+export * from './InfoCard';
 
 export { default as Page } from './Page';
 export * from './Page';
