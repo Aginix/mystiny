@@ -7,6 +7,9 @@ export * from './ContentHeader';
 export { default as ErrorBoundary } from './ErrorBoundary';
 export * from './ErrorBoundary';
 
+export { default as Form } from './Form';
+export * from './Form';
+
 export { default as FormLayout } from './FormLayout';
 export * from './FormLayout';
 
