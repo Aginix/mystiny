@@ -12,6 +12,7 @@ import AssessmentIcon from '@material-ui/icons/Assessment';
 import { Hidden } from '@material-ui/core';
 import { Sidebar, SidebarSpacer, SidebarSpace, SidebarItem, SidebarDivider } from '../Sidebar';
 import { useBreakpoints } from '../../utilities/devices';
+import Content from '../Content';
 
 export default {
   title: 'Frame',
@@ -84,9 +85,11 @@ export const withTopBarAndNavigation = () => {
       topBar={<TopBar showNavigationToggle onNavigationToggle={toggleMobileNavigationActive} />}
       navigation={navigationMarkup}
     >
-      <Typography variant="body1" component="p">
-        Content
-      </Typography>
+      <Content>
+        <Typography variant="body1" component="p">
+          Content
+        </Typography>
+      </Content>
     </Frame>
   );
 };

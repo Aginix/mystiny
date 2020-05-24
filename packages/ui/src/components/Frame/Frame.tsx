@@ -1,10 +1,16 @@
 import React, { FC, Fragment } from 'react';
 
-import { makeStyles } from '@material-ui/core/styles';
-import { SidebarContext } from '../Sidebar';
+import { makeStyles, Theme } from '@material-ui/core/styles';
+import { sidebarConfig } from '../Sidebar';
+import { Toolbar } from '@material-ui/core';
 
-const useStyles = makeStyles(() => ({
+const useStyles = makeStyles((theme: Theme) => ({
   content: {},
+  contentWithDrawer: {
+    [theme.breakpoints.up('md')]: {
+      marginLeft: sidebarConfig.drawerWidthOpen,
+    },
+  },
   navigationWrapper: {},
   topBarWrapper: {},
 }));
@@ -30,20 +36,25 @@ const Frame: FC<FrameProps> = ({ topBar, navigation, children }) => {
   const classes = useStyles({});
   let navigationMarkup: React.ReactNode | null = null;
   let topBarMarkup: React.ReactNode | null = null;
+  let topBarGutterMarkup: React.ReactNode | null = null;
+  let contentMarkup = <div className={classes.content}>{children}</div>;
 
   if (navigation) {
     navigationMarkup = <div className={classes.navigationWrapper}>{navigation}</div>;
+    contentMarkup = <div className={classes.contentWithDrawer}>{children}</div>;
   }
 
   if (topBar) {
     topBarMarkup = <div className={classes.topBarWrapper}>{topBar}</div>;
+    topBarGutterMarkup = <Toolbar />;
   }
 
   return (
     <Fragment>
       {topBarMarkup}
       {navigationMarkup}
-      <div className={classes.content}>{children}</div>
+      {topBarGutterMarkup}
+      {contentMarkup}
     </Fragment>
   );
 };

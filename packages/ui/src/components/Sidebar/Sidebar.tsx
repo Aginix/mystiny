@@ -30,14 +30,14 @@ export interface SidebarProps {
 export const Sidebar: FC<SidebarProps> = ({ children, open, handleClose, addSpaceForTopBar }) => {
   const classes = useStyles();
   const theme = useTheme();
-  const isMobile = useMediaQuery(theme.breakpoints.down('xs'));
+  const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
 
   const container = typeof window !== 'undefined' ? () => window.document.body : undefined;
 
   return (
     <NoSsr>
       <nav>
-        <Hidden xsUp implementation="css">
+        <Hidden smUp implementation="css">
           <Drawer
             variant="temporary"
             onClose={handleClose}
@@ -53,7 +53,7 @@ export const Sidebar: FC<SidebarProps> = ({ children, open, handleClose, addSpac
             {children}
           </Drawer>
         </Hidden>
-        <Hidden xsDown implementation="css">
+        <Hidden smDown implementation="css">
           <Drawer
             variant="persistent"
             open={open}
