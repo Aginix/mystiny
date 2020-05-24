@@ -1,5 +1,5 @@
 import React, { useCallback } from 'react';
-import { ListItemIcon, Avatar, Menu, NoSsr, MenuItem, Tooltip, Typography, Button } from '@material-ui/core';
+import { ListItemIcon, Avatar, Menu, NoSsr, MenuItem, Tooltip, Typography, Button, Hidden } from '@material-ui/core';
 import { makeStyles, fade } from '@material-ui/core/styles';
 import { IconableAction } from '../types';
 import { AppTheme } from '@mystiny/theme';
@@ -13,6 +13,9 @@ const useStyles = makeStyles((theme: AppTheme) => ({
     textAlign: 'left',
     textTransform: 'none',
     color: theme.palette.getContrastText(theme.palette.appbar),
+    [theme.breakpoints.down('xs')]: {
+      paddingRight: 0,
+    },
   },
   details: {
     maxWidth: theme.spacing(32),
@@ -115,14 +118,16 @@ const TopBarUserMenu = ({ actions = [], name, detail, initials }: TopBarUserMenu
           {...bindTrigger(popupState)}
         >
           <Avatar>{initials}</Avatar>
-          <span className={classes.details}>
-            <Typography variant="subtitle1" component="p" className={classes.name} noWrap>
-              {name}
-            </Typography>
-            <Typography variant="subtitle2" component="p" className={classes.detail} noWrap>
-              {detail}
-            </Typography>
-          </span>
+          <Hidden smDown>
+            <span className={classes.details}>
+              <Typography variant="subtitle1" component="p" className={classes.name} noWrap>
+                {name}
+              </Typography>
+              <Typography variant="subtitle2" component="p" className={classes.detail} noWrap>
+                {detail}
+              </Typography>
+            </span>
+          </Hidden>
         </Button>
       </Tooltip>
       {/* <IconButton

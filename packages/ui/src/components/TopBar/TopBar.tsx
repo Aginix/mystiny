@@ -26,6 +26,9 @@ const useStyles = makeStyles((theme: Theme) => ({
   },
   menuButton: {
     marginRight: 36,
+    [theme.breakpoints.down('xs')]: {
+      marginRight: theme.spacing(2),
+    },
   },
   hide: {
     display: 'none',
@@ -55,11 +58,30 @@ const useStyles = makeStyles((theme: Theme) => ({
 
 export interface TopBarProps {
   open?: boolean;
-  handleOpen?: () => void;
+  /** Toggles whether or not a navigation component has been provided. Controls the presence of the mobile nav toggle button */
+  showNavigationToggle?: boolean;
+  /** A callback function that handles hiding and showing mobile navigation */
+  onNavigationToggle?(): void;
 }
 
-const TopBar: FC<TopBarProps> = ({ children, handleOpen, open }) => {
+const TopBar: FC<TopBarProps> = ({ children, onNavigationToggle, showNavigationToggle, open }) => {
   const classes = useStyles({});
+
+  const navigationButtonMarkup = showNavigationToggle ? (
+    <Hidden mdUp>
+      <IconButton
+        color="inherit"
+        aria-label="open drawer"
+        onClick={onNavigationToggle}
+        edge="start"
+        className={clsx(classes.menuButton, {
+          [classes.hide]: open,
+        })}
+      >
+        <MenuIcon />
+      </IconButton>
+    </Hidden>
+  ) : null;
 
   return (
     <div className={classes.root}>
@@ -72,19 +94,7 @@ const TopBar: FC<TopBarProps> = ({ children, handleOpen, open }) => {
       >
         <NoSsr>
           <Toolbar>
-            <Hidden xsUp>
-              <IconButton
-                color="inherit"
-                aria-label="open drawer"
-                onClick={handleOpen}
-                edge="start"
-                className={clsx(classes.menuButton, {
-                  [classes.hide]: open,
-                })}
-              >
-                <MenuIcon />
-              </IconButton>
-            </Hidden>
+            {navigationButtonMarkup}
             {children}
           </Toolbar>
         </NoSsr>

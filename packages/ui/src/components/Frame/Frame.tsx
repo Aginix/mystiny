@@ -1,6 +1,7 @@
 import React, { FC, Fragment } from 'react';
 
 import { makeStyles } from '@material-ui/core/styles';
+import { SidebarContext } from '../Sidebar';
 
 const useStyles = makeStyles(() => ({
   content: {},
