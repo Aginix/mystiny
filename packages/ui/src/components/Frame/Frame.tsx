@@ -13,6 +13,12 @@ const useStyles = makeStyles((theme: Theme) => ({
   },
   navigationWrapper: {},
   topBarWrapper: {},
+  navigationBottom: {
+    position: 'fixed',
+    top: 'auto',
+    bottom: 0,
+    width: '100%',
+  },
 }));
 
 export interface FrameProps {
@@ -30,13 +36,20 @@ export interface FrameProps {
   skipToContentTarget?: React.RefObject<HTMLAnchorElement>;
   /** A callback function to handle clicking the mobile navigation dismiss button */
   onNavigationDismiss?(): void;
+  /** Accepts a navigation component that will be rendered fixed to the bottom of an application frame */
+  navigationBottom?: React.ReactNode;
+  /** A boolean property indicating whether the navigation bottom is currently visible
+   * @default false
+   */
+  showNavigationBottom?: boolean;
 }
 
-const Frame: FC<FrameProps> = ({ topBar, navigation, children }) => {
+const Frame: FC<FrameProps> = ({ topBar, navigation, children, navigationBottom, showNavigationBottom }) => {
   const classes = useStyles({});
   let navigationMarkup: React.ReactNode | null = null;
   let topBarMarkup: React.ReactNode | null = null;
   let topBarGutterMarkup: React.ReactNode | null = null;
+  let navigationBottomMarkup: React.ReactNode | null = null;
   let contentMarkup = <div className={classes.content}>{children}</div>;
 
   if (navigation) {
@@ -49,12 +62,17 @@ const Frame: FC<FrameProps> = ({ topBar, navigation, children }) => {
     topBarGutterMarkup = <Toolbar />;
   }
 
+  if (showNavigationBottom && navigationBottom) {
+    navigationBottomMarkup = <div className={classes.navigationBottom}>{navigationBottom}</div>;
+  }
+
   return (
     <Fragment>
       {topBarMarkup}
       {navigationMarkup}
       {topBarGutterMarkup}
       {contentMarkup}
+      {navigationBottomMarkup}
     </Fragment>
   );
 };

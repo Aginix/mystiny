@@ -1,6 +1,7 @@
 import React, { useCallback, useState } from 'react';
+import { makeStyles } from '@material-ui/core/styles';
 import Frame from './Frame';
-import { Link, Button, Typography } from '@material-ui/core';
+import { BottomNavigation, BottomNavigationAction, Link, Button, Typography } from '@material-ui/core';
 import { TopBar } from '../TopBar';
 import SettingsIcon from '@material-ui/icons/Settings';
 import ThumbUpIcon from '@material-ui/icons/ThumbUp';
@@ -10,6 +11,9 @@ import DashboardIcon from '@material-ui/icons/Dashboard';
 import AddIcon from '@material-ui/icons/AddCircleSharp';
 import AssessmentIcon from '@material-ui/icons/Assessment';
 import { Hidden } from '@material-ui/core';
+import RestoreIcon from '@material-ui/icons/Restore';
+import FavoriteIcon from '@material-ui/icons/Favorite';
+import LocationOnIcon from '@material-ui/icons/LocationOn';
 import { Sidebar, SidebarSpacer, SidebarSpace, SidebarItem, SidebarDivider } from '../Sidebar';
 import { useBreakpoints } from '../../utilities/devices';
 import Content from '../Content';
@@ -19,24 +23,9 @@ export default {
   component: Frame,
 };
 
-export const onlyContent = () => (
-  <Frame>
-    <Typography variant="body1" component="p">
-      Content
-    </Typography>
-  </Frame>
-);
-
-export const withTopBar = () => (
-  <Frame topBar={<TopBar />}>
-    <Typography variant="body1" component="p">
-      Content
-    </Typography>
-  </Frame>
-);
-
-export const withTopBarAndNavigation = () => {
+export const Example = () => {
   const isTabletDown = useBreakpoints('down', 'sm');
+  const [value, setValue] = React.useState(0);
   const [mobileNavigationActive, setMobileNavigationActive] = useState(false);
   const toggleMobileNavigationActive = useCallback(
     () => setMobileNavigationActive((mobileNavigationActive) => !mobileNavigationActive),
@@ -84,6 +73,66 @@ export const withTopBarAndNavigation = () => {
     <Frame
       topBar={<TopBar showNavigationToggle onNavigationToggle={toggleMobileNavigationActive} />}
       navigation={navigationMarkup}
+      showNavigationBottom={isTabletDown}
+      navigationBottom={
+        <BottomNavigation
+          value={value}
+          onChange={(_, newValue) => {
+            setValue(newValue);
+          }}
+          showLabels
+        >
+          <BottomNavigationAction label="Recents" icon={<RestoreIcon />} />
+          <BottomNavigationAction label="Favorites" icon={<FavoriteIcon />} />
+          <BottomNavigationAction label="Nearby" icon={<LocationOnIcon />} />
+        </BottomNavigation>
+      }
+    >
+      <Content>
+        <Typography variant="body1" component="p">
+          Content
+        </Typography>
+      </Content>
+    </Frame>
+  );
+};
+
+export const onlyContent = () => (
+  <Frame>
+    <Typography variant="body1" component="p">
+      Content
+    </Typography>
+  </Frame>
+);
+
+export const withTopBar = () => (
+  <Frame topBar={<TopBar />}>
+    <Typography variant="body1" component="p">
+      Content
+    </Typography>
+  </Frame>
+);
+
+export const withMobileNavigationBottom = () => {
+  const isTabletDown = useBreakpoints('down', 'sm');
+  const [value, setValue] = React.useState(0);
+
+  return (
+    <Frame
+      showNavigationBottom={isTabletDown}
+      navigationBottom={
+        <BottomNavigation
+          value={value}
+          onChange={(_, newValue) => {
+            setValue(newValue);
+          }}
+          showLabels
+        >
+          <BottomNavigationAction label="Recents" icon={<RestoreIcon />} />
+          <BottomNavigationAction label="Favorites" icon={<FavoriteIcon />} />
+          <BottomNavigationAction label="Nearby" icon={<LocationOnIcon />} />
+        </BottomNavigation>
+      }
     >
       <Content>
         <Typography variant="body1" component="p">
