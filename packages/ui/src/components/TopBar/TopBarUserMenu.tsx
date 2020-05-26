@@ -65,8 +65,9 @@ const TopBarUserMenu = ({ actions = [], name, detail, initials }: TopBarUserMenu
       {...bindMenu(popupState)}
       id={menuId}
     >
-      {actions.map((action) => (
+      {actions.map((action, index) => (
         <MenuItem
+          key={index}
           onMouseEnter={action.onMouseEnter}
           onTouchStart={action.onTouchStart}
           onClick={handleClick(action.onAction)}
