@@ -16,9 +16,6 @@ export * from './Form';
 export { default as FormLayout } from './FormLayout';
 export * from './FormLayout';
 
-export { default as FormLayoutGroup } from './FormLayoutGroup';
-export * from './FormLayoutGroup';
-
 export { default as Frame } from './Frame';
 export * from './Frame';
 

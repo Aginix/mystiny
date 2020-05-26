@@ -1,7 +1,6 @@
 import React, { useCallback, useState } from 'react';
-import { makeStyles } from '@material-ui/core/styles';
 import Frame from './Frame';
-import { BottomNavigation, BottomNavigationAction, Link, Button, Typography } from '@material-ui/core';
+import { BottomNavigation, BottomNavigationAction, Typography } from '@material-ui/core';
 import { TopBar } from '../TopBar';
 import SettingsIcon from '@material-ui/icons/Settings';
 import ThumbUpIcon from '@material-ui/icons/ThumbUp';

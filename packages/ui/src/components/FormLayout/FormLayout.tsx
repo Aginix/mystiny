@@ -1,7 +1,7 @@
 import React, { FC } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import { isElementOfType, wrapWithComponent } from '../../utilities';
-import FormLayoutGroup from '../FormLayoutGroup';
+import FormLayoutGroup from './FormLayoutGroup';
 import { FormLayoutItem } from './FormLayoutItem';
 
 const useStyles = makeStyles((theme) => ({

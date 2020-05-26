@@ -1,6 +1,6 @@
 import React from 'react';
 import { TextField } from '@material-ui/core';
-import FormLayout from '../FormLayout';
+import FormLayout from '.';
 import { FormLayoutGroup } from './FormLayoutGroup';
 
 export default {

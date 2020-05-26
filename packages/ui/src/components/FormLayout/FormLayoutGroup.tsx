@@ -1,7 +1,7 @@
 import React, { FC } from 'react';
 import clsx from 'clsx';
 import { makeStyles, fade } from '@material-ui/core/styles';
-import { FormLayoutItem } from '../FormLayout';
+import { FormLayoutItem } from '.';
 import { wrapWithComponent, useUniqueId } from '../../utilities';
 import { AppTheme } from '@mystiny/theme';
 import { Typography } from '@material-ui/core';
