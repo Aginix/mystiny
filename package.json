@@ -16,7 +16,7 @@
     "lint": "lerna run lint --since origin/master --",
     "lint:all": "lerna run lint --",
     "dev:all": "lerna run dev --parallel",
-    "dev:app": "lerna run dev --scope @mystiny/app",
+    "dev:app": "yarn workspace app dev",
     "storybook": "yarn workspace @mystiny/ui storybook",
     "storybook:build": "yarn workspace @mystiny/ui storybook:build",
     "lerna": "lerna"
