@@ -91,8 +91,9 @@ const TopBarUserMenu = ({ actions = [], name, detail, initials }: TopBarUserMenu
     >
       {actions
         .filter((action) => !action.hideOnMobile)
-        .map((action) => (
+        .map((action, index) => (
           <MenuItem
+            key={index}
             onMouseEnter={action.onMouseEnter}
             onTouchStart={action.onTouchStart}
             onClick={handleClick(action.onAction)}
