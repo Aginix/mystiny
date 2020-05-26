@@ -44,7 +44,7 @@ export interface SidebarItemProps extends Omit<ListItemProps<'button'>, 'onClick
   onClick?: () => void;
 }
 
-export const SidebarItem: FC<SidebarItemProps> = ({ text, icon, to, onClick, children }) => {
+export const SidebarItem: FC<SidebarItemProps> = React.forwardRef(({ text, icon, to, onClick, children, ref }) => {
   const classes = useStyles({});
   const [open, setOpen] = useState(false);
 
@@ -54,7 +54,7 @@ export const SidebarItem: FC<SidebarItemProps> = ({ text, icon, to, onClick, chi
 
   if (!children) {
     return (
-      <Link href={to} onClick={onClick} underline="none">
+      <Link href={to} onClick={onClick} underline="none" ref={ref}>
         <ListItem button dense classes={{ root: classes.item }}>
           {icon ? <ListItemIcon classes={{ root: classes.icon }}>{icon}</ListItemIcon> : null}
           <ListItemText
@@ -71,7 +71,7 @@ export const SidebarItem: FC<SidebarItemProps> = ({ text, icon, to, onClick, chi
 
   return (
     <Fragment>
-      <ListItem button dense onClick={handleClick} classes={{ root: classes.item }}>
+      <ListItem button dense onClick={handleClick} classes={{ root: classes.item }} innerRef={ref}>
         {icon ? <ListItemIcon classes={{ root: classes.icon }}>{icon}</ListItemIcon> : null}
 
         <ListItemText
@@ -90,7 +90,7 @@ export const SidebarItem: FC<SidebarItemProps> = ({ text, icon, to, onClick, chi
       </Collapse>
     </Fragment>
   );
-};
+});
 
 export const SidebarSpace = styled('div')({
   flex: 1,
