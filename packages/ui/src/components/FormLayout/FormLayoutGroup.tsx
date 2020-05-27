@@ -16,7 +16,7 @@ const useStyles = makeStyles((theme: AppTheme) => ({
     padding: `${theme.spacing()}px ${theme.spacing(4)}px 0`,
   },
   helpText: {
-    color: fade(theme.palette.textContrast, 0.45),
+    color: 'inherit',
     padding: `${theme.spacing(1.5)}px ${theme.spacing(4)}px 0`,
   },
   grouped: {
