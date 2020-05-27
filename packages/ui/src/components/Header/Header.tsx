@@ -137,7 +137,7 @@ const Header: FC<HeaderProps> = ({ children, pageTitleOverride, style, subtitle,
   const classes = useStyles();
   const documentTitle = pageTitleOverride || title;
   const pageTitle = title || pageTitleOverride;
-  const defaultTitle = `${documentTitle} | Backstage`;
+  const defaultTitle = `${documentTitle} | Mystiny`;
 
   return (
     <Fragment>

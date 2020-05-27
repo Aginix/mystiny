@@ -1,7 +1,8 @@
 import { createTheme } from './baseTheme';
 import { blue, yellow } from '@material-ui/core/colors';
+import { AppPaletteOptions } from './types';
 
-export const lightTheme = createTheme({
+export const lightThemePalette: AppPaletteOptions = {
   type: 'light',
   background: {
     default: '#F8F8F8',
@@ -40,9 +41,11 @@ export const lightTheme = createTheme({
   gold: yellow.A700,
   sidebar: '#171717',
   appbar: '#3f51b5',
-});
+};
 
-export const darkTheme = createTheme({
+export const lightTheme = createTheme(lightThemePalette);
+
+export const darkThemePalette: AppPaletteOptions = {
   type: 'dark',
   background: {
     default: '#282828',
@@ -81,4 +84,6 @@ export const darkTheme = createTheme({
   gold: yellow.A700,
   sidebar: '#424242',
   appbar: '#323247',
-});
+};
+
+export const darkTheme = createTheme(darkThemePalette);

@@ -50,6 +50,23 @@ export function createThemeOptions(palette: AppPaletteOptions): AppThemeOptions 
 
 export function createThemeOverrides(theme: AppTheme): Overrides {
   return {
+    MuiCssBaseline: {
+      '@global': {
+        html: {
+          height: '100%',
+          fontFamily: theme.typography.fontFamily,
+        },
+        body: {
+          height: '100%',
+          fontFamily: theme.typography.fontFamily,
+          'overscroll-behavior-y': 'none',
+        },
+        a: {
+          color: 'inherit',
+          textDecoration: 'none',
+        },
+      },
+    },
     MuiAppBar: {
       colorPrimary: {
         backgroundColor: theme.palette.appbar,
@@ -173,8 +190,8 @@ export function createThemeOverrides(theme: AppTheme): Overrides {
   };
 }
 
-// Creates a Backstage MUI theme using a palette.
-// The theme is created with the common Backstage options and component styles.
+// Creates a Mystiny MUI theme using a palette.
+// The theme is created with the common Mystiny options and component styles.
 export function createTheme(palette: AppPaletteOptions): AppTheme {
   const themeOptions = createThemeOptions(palette);
   const baseTheme = createMuiTheme(themeOptions) as AppTheme;

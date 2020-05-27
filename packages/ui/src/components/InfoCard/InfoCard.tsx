@@ -118,7 +118,7 @@ const InfoCard: FC<InfoCardProps> = ({
   subheader,
   divider,
   deepLink,
-  slackChannel = '#backstage',
+  slackChannel = '#mystiny',
   variant,
   children,
   headerStyle,

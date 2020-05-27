@@ -15,8 +15,8 @@ jobs:
     env:
       CI: true
       NODE_OPTIONS: --max-old-space-size=4096
-      BACKSTAGE_CACHE_DIR: <repoRoot>/.backstage-build-cache
-      BACKSTAGE_CACHE_MAX_ENTRIES: 2
+      MYSTINY_CACHE_DIR: <repoRoot>/.mystiny-build-cache
+      MYSTINY_CACHE_MAX_ENTRIES: 2
 
     steps:
       - uses: actions/checkout@v2
@@ -38,7 +38,7 @@ jobs:
       - name: cache build cache
         uses: actions/cache@v1
         with:
-          path: .backstage-build-cache
+          path: .mystiny-build-cache
           key: build-cache-${{ github.sha }}
           restore-keys: |
             build-cache-

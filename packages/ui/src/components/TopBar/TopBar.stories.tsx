@@ -13,7 +13,7 @@ export default {
 export const defaultTopBar = () => (
   <TopBar>
     <Typography variant="h6" noWrap>
-      Backstage
+      Mystiny
     </Typography>
     <TopBarSpace />
     <TopBarNotification
