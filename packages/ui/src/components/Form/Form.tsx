@@ -8,17 +8,18 @@ export const FormContext = createContext<Partial<FormContextValues>>(null as any
 export interface Props {
   form: FormContextValues<FieldValues>;
   loading?: boolean;
+  disableDevTool?: boolean;
   onSubmit?: (e?: React.BaseSyntheticEvent) => Promise<void>;
 }
 
-export const Form: React.FC<Props> = ({ children, onSubmit, form, loading = false }) => {
+export const Form: React.FC<Props> = ({ children, onSubmit, form, loading = false, disableDevTool = false }) => {
   const { control } = form;
 
   return (
     <FormContext.Provider value={form}>
       <form onSubmit={onSubmit}>
         {children}
-        <DevTool control={control} />
+        {!disableDevTool && <DevTool control={control} />}
       </form>
       <PageBackdrop open={loading} />
     </FormContext.Provider>
