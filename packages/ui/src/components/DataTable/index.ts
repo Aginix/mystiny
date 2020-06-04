@@ -8,3 +8,4 @@ export * from './DataTableToolbar';
 export * from './react-table-config';
 export * from './IndeterminateCheckbox';
 export * from './utilityHooks';
+export * from './Filters';

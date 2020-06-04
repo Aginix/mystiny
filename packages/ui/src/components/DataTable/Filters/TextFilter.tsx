@@ -1,8 +1,8 @@
 import React from 'react';
 import { TextField } from '@material-ui/core';
-import { useAsyncDebounce } from 'react-table';
+import { useAsyncDebounce, HeaderProps } from 'react-table';
 
-export const TextFilter = ({ column: { Header, filterValue, setFilter, preFilteredRows, id } }: any) => {
+export const TextFilter = ({ column: { Header, filterValue, setFilter } }: HeaderProps<object>) => {
   const handleOnChange = useAsyncDebounce((value?: string) => {
     setFilter(value);
   }, 200);
