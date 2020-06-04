@@ -1,3 +1,5 @@
+export { default } from './DataTable';
+
 export * from './types';
 export * from './DataTable';
 export * from './DataTableFilters';
