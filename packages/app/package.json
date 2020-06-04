@@ -1,6 +1,6 @@
 {
   "name": "app",
-  "version": "1.1.7",
+  "version": "1.2.0",
   "private": true,
   "scripts": {
     "dev": "next dev",
@@ -8,8 +8,8 @@
     "start": "next start"
   },
   "dependencies": {
-    "@mystiny/theme": "^1.1.7",
-    "@mystiny/ui": "^1.1.7",
+    "@mystiny/theme": "^1.2.0",
+    "@mystiny/ui": "^1.2.0",
     "@next/bundle-analyzer": "^9.3.6",
     "@sindresorhus/is": "^2.1.1",
     "babel-plugin-import": "^1.13.0",
