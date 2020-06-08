@@ -2243,11 +2243,6 @@
   dependencies:
     any-observable "^0.3.0"
 
-"@scarf/scarf@^0.1.5":
-  version "0.1.7"
-  resolved "https://registry.yarnpkg.com/@scarf/scarf/-/scarf-0.1.7.tgz#e6ffb3660bda77f96037f8c4e21174177fed2d97"
-  integrity sha512-XUBa8nl9J1XGyyA+wul1ko5v5ioNU1s/pUPODnPzJ4+uUOwwYZm197KQoxxzOAsypldlFGnAlQ8nkjTjoQV9GQ==
-
 "@sindresorhus/is@^2.1.1":
   version "2.1.1"
   resolved "https://registry.yarnpkg.com/@sindresorhus/is/-/is-2.1.1.tgz#ceff6a28a5b4867c2dd4a1ba513de278ccbe8bb1"
@@ -2828,25 +2823,10 @@
     "@types/history" "*"
     "@types/react" "*"
 
-"@types/react-query@^1.1.2":
-  version "1.1.2"
-  resolved "https://registry.yarnpkg.com/@types/react-query/-/react-query-1.1.2.tgz#3d7f3c9457116d05ba4eabb9e7f882b6d496436c"
-  integrity sha512-/IuQs37kmUg7C417Rotu+uf/3LghR3Qv6RGHO2YU1P+wFx167Hy3WJ3r9Si0jOyJVTDtjF2Lt0xSeq+kJwokKw==
-  dependencies:
-    "@types/react" "*"
-    ts-toolbelt "*"
-
 "@types/react-syntax-highlighter@11.0.4":
   version "11.0.4"
   resolved "https://registry.yarnpkg.com/@types/react-syntax-highlighter/-/react-syntax-highlighter-11.0.4.tgz#d86d17697db62f98046874f62fdb3e53a0bbc4cd"
   integrity sha512-9GfTo3a0PHwQeTVoqs0g5bS28KkSY48pp5659wA+Dp4MqceDEa8EHBqrllJvvtyusszyJhViUEap0FDvlk/9Zg==
-  dependencies:
-    "@types/react" "*"
-
-"@types/react-table@^7.0.16":
-  version "7.0.16"
-  resolved "https://registry.yarnpkg.com/@types/react-table/-/react-table-7.0.16.tgz#3db6518fe07d79c58213e2b959983b353ba59457"
-  integrity sha512-SDFRUnWWN16rL/N1bpV4GKp4EAoulmrHbHoWCNUldrqVBYI9m9o+sYqNPP2E5NVUW7HQJf15rHKFN13F6v49Uw==
   dependencies:
     "@types/react" "*"
 
@@ -11439,11 +11419,6 @@ rc@^1.2.7:
     minimist "^1.2.0"
     strip-json-comments "~2.0.1"
 
-react-addons-text-content@^0.0.4:
-  version "0.0.4"
-  resolved "https://registry.yarnpkg.com/react-addons-text-content/-/react-addons-text-content-0.0.4.tgz#d2e259fdc951d1d8906c08902002108dce8792e5"
-  integrity sha1-0uJZ/clR0diQbAiQIAIQjc6HkuU=
-
 react-clientside-effect@^1.2.2:
   version "1.2.2"
   resolved "https://registry.yarnpkg.com/react-clientside-effect/-/react-clientside-effect-1.2.2.tgz#6212fb0e07b204e714581dd51992603d1accc837"
@@ -11629,13 +11604,6 @@ react-syntax-highlighter@^11.0.2:
     lowlight "~1.11.0"
     prismjs "^1.8.4"
     refractor "^2.4.1"
-
-react-table@^7.0.4:
-  version "7.0.4"
-  resolved "https://registry.yarnpkg.com/react-table/-/react-table-7.0.4.tgz#456838661982c83c3682f156c59a41b4339a2120"
-  integrity sha512-Uqpj+VnUIvsNWNtNFD1z2i7OCHdlhoJtQt0DWx3XOkZnvDyI/eCghK8YBfA9mY4TW7vEgCDLaRCcREC/fmcx6Q==
-  dependencies:
-    "@scarf/scarf" "^0.1.5"
 
 react-textarea-autosize@^7.1.0:
   version "7.1.2"
@@ -13635,11 +13603,6 @@ ts-pnp@^1.1.2:
   version "1.2.0"
   resolved "https://registry.yarnpkg.com/ts-pnp/-/ts-pnp-1.2.0.tgz#a500ad084b0798f1c3071af391e65912c86bca92"
   integrity sha512-csd+vJOb/gkzvcCHgTGSChYpy5f1/XKNsmvBGO4JXS+z1v2HobugDz4s1IeFXM3wZB44uczs+eazB5Q/ccdhQw==
-
-ts-toolbelt@*:
-  version "6.5.1"
-  resolved "https://registry.yarnpkg.com/ts-toolbelt/-/ts-toolbelt-6.5.1.tgz#1316b8c6522797c0bee289ca5deaa159af846231"
-  integrity sha512-zjnZ/vy1eUA0li3H0JXecl0R3jiP42snpLimsrppt9V3LLbM4NM4jMgjXQ4S67hvehq+r9CxpX4Wj6RnFRzReA==
 
 tslib@1.9.3:
   version "1.9.3"
