@@ -35,6 +35,9 @@ const useStyles = makeStyles((theme: AppTheme) => ({
     color: fade(theme.palette.textContrast, 0.75),
     fontWeight: 500,
   },
+  collapse: {
+    minHeight: 'unset !important',
+  }
 }));
 
 export interface SidebarItemProps extends Omit<ListItemProps<'button'>, 'onClick' | 'button'> {
@@ -83,7 +86,7 @@ export const SidebarItem: FC<SidebarItemProps> = React.forwardRef(({ text, icon,
         />
         {open ? <ExpandLess className={classes.iconExpand} /> : <ExpandMore className={classes.iconExpand} />}
       </ListItem>
-      <Collapse in={open} timeout="auto" unmountOnExit>
+      <Collapse in={open} timeout="auto" unmountOnExit className={classes.collapse}>
         <List component="div" disablePadding dense className={classes.nestedWrapper}>
           {children}
         </List>
@@ -98,10 +101,12 @@ export const SidebarSpace = styled('div')({
 
 export const SidebarSpacer = styled('div')({
   height: 8,
+  minHeight: 8,
 });
 
 export const SidebarDivider = styled('hr')(({ theme }) => ({
   height: 1,
+  minHeight: 1,
   width: '100%',
   background: theme.palette.divider,
   border: 'none',
