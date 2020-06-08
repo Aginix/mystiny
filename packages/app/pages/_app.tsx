@@ -5,6 +5,7 @@ import { AppProps } from 'next/app';
 import { lightTheme, darkTheme, ThemeContext, useThemeType, ThemeContextType } from '@mystiny/theme';
 import React, { useEffect, useState, useMemo } from 'react';
 import Head from 'next/head';
+import Noop from '../src/layout/Noop';
 
 function MyApp({ Component, pageProps }: AppProps) {
   const [theme, toggleTheme] = useThemeType('auto');
@@ -20,7 +21,7 @@ function MyApp({ Component, pageProps }: AppProps) {
     }
   }, []);
 
-  const backstageTheme = useMemo(() => {
+  const mystinyTheme = useMemo(() => {
     switch (theme) {
       case 'light':
         return lightTheme;
@@ -43,6 +44,8 @@ function MyApp({ Component, pageProps }: AppProps) {
     toggleTheme,
   };
 
+  const Layout = (Component as any).Layout || Noop
+
   return (
     <React.Fragment>
       <Head>
@@ -50,10 +53,12 @@ function MyApp({ Component, pageProps }: AppProps) {
         <meta name="viewport" content="minimum-scale=1, initial-scale=1, width=device-width" />
       </Head>
       <ThemeContext.Provider value={themeContext}>
-        <ThemeProvider theme={backstageTheme}>
+        <ThemeProvider theme={mystinyTheme}>
           {/* CssBaseline kickstart an elegant, consistent, and simple baseline to build upon. */}
-          <CssBaseline />
-          <Component {...pageProps} />
+          <Layout>
+            <CssBaseline />
+            <Component {...pageProps} />
+          </Layout>
         </ThemeProvider>
       </ThemeContext.Provider>
     </React.Fragment>

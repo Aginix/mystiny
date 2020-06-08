@@ -1,7 +1,7 @@
 import Head from 'next/head';
-import { PageTitle } from '@mystiny/core';
+import Root from '../layout/Root';
 
-export default function Home() {
+const Home = () => {
   return (
     <div className="container">
       <Head>
@@ -11,7 +11,6 @@ export default function Home() {
 
       <main>
         <h1 className="title">
-          <PageTitle />
           Welcome to asd <a href="https://nextjs.org">Next.js!</a>
         </h1>
 
@@ -202,3 +201,7 @@ export default function Home() {
     </div>
   );
 }
+
+Home.Layout = Root;
+
+export default Home
