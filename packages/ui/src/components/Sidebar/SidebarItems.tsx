@@ -28,6 +28,7 @@ const useStyles = makeStyles((theme: AppTheme) => ({
   item: {
     paddingLeft: theme.spacing(1.5),
     paddingRight: theme.spacing(1.5),
+    minHeight: 36,
   },
   label: {
     fontSize: '0.835rem',
