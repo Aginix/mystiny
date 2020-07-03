@@ -1,6 +1,6 @@
 import React, { useCallback, useState } from 'react';
 import Frame from './Frame';
-import { BottomNavigation, BottomNavigationAction, Typography } from '@material-ui/core';
+import { BottomNavigation, BottomNavigationAction, Typography, List, ListItem, ListItemText, Paper } from '@material-ui/core';
 import { TopBar } from '../TopBar';
 import SettingsIcon from '@material-ui/icons/Settings';
 import ThumbUpIcon from '@material-ui/icons/ThumbUp';
@@ -112,6 +112,14 @@ export const withTopBar = () => (
   </Frame>
 );
 
+function generate(element) {
+  return [0, 1, 2, 3, 4, 5, 6, 7, 8, 9].map((value) =>
+    React.cloneElement(element, {
+      key: value,
+    }),
+  );
+}
+
 export const withMobileNavigationBottom = () => {
   const isTabletDown = useBreakpoints('down', 'sm');
   const [value, setValue] = React.useState(0);
@@ -137,6 +145,18 @@ export const withMobileNavigationBottom = () => {
         <Typography variant="body1" component="p">
           Content
         </Typography>
+        <Paper square>
+          <List>
+            {generate(
+              <ListItem>
+                <ListItemText
+                  primary="Single-line item"
+                  secondary={'Secondary text'}
+                />
+              </ListItem>,
+            )}
+          </List>
+        </Paper>
       </Content>
     </Frame>
   );
