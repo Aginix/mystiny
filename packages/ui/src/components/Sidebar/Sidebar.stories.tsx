@@ -28,8 +28,8 @@ export const sidebar = () => (
     <SidebarSpacer />
     <SidebarItem text="Home" icon={<HomeIcon />} />
     <SidebarSpacer />
-    <SidebarItem text="Analytics" icon={<TimelineIcon />}>
-      <SidebarItem text="Dashboard" icon={<DashboardIcon />} />
+    <SidebarItem text="Analytics" icon={<TimelineIcon />} open>
+      <SidebarItem text="Dashboard" icon={<DashboardIcon />} active />
       <SidebarItem text="Report" icon={<AssessmentIcon />} />
     </SidebarItem>
     <SidebarDivider />

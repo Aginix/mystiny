@@ -1,4 +1,5 @@
 import React, { FC, Fragment, useState, useCallback, ReactNode } from 'react';
+import clsx from 'clsx';
 
 import { Link, Typography, styled, List, ListItem, ListItemIcon, ListItemText, Collapse } from '@material-ui/core';
 import { makeStyles, fade } from '@material-ui/core/styles';
@@ -22,6 +23,12 @@ const useStyles = makeStyles((theme: AppTheme) => ({
     color: fade(theme.palette.textContrast, 0.45),
     minWidth: theme.spacing(4),
   },
+  iconSelected: {
+    color: fade(theme.palette.textContrast, 0.6),
+  },
+  iconSelectedCollapse: {
+    color: fade(theme.palette.primary.main, 0.85),
+  },
   iconExpand: {
     color: fade(theme.palette.textContrast, 0.45),
   },
@@ -36,9 +43,19 @@ const useStyles = makeStyles((theme: AppTheme) => ({
     color: fade(theme.palette.textContrast, 0.75),
     fontWeight: 500,
   },
+  labelSelected: {
+    fontSize: '0.855rem',
+    fontWeight: 600,
+  },
   collapse: {
     minHeight: 'unset !important',
-  }
+  },
+  selected: {
+    '&$selected, &$selected:hover': {
+      backgroundColor: fade(theme.palette.primary.light, 0.15),
+    },
+    // backgroundColor: fade(theme.palette.primary.main, 0.25),
+  },
 }));
 
 export interface SidebarItemProps extends Omit<ListItemProps<'button'>, 'onClick' | 'button'> {
@@ -46,21 +63,53 @@ export interface SidebarItemProps extends Omit<ListItemProps<'button'>, 'onClick
   icon?: ReactNode;
   to?: string;
   onClick?: () => void;
+  open?: boolean;
+  active?: boolean;
 }
 
-export const SidebarItem: FC<SidebarItemProps> = React.forwardRef(({ text, icon, to, onClick, children, ref }) => {
-  const classes = useStyles({});
-  const [open, setOpen] = useState(false);
+export const SidebarItem: FC<SidebarItemProps> = React.forwardRef(
+  ({ text, icon, to, onClick, open = false, active, children, ref }) => {
+    const classes = useStyles({});
+    const [open_, setOpen] = useState(open);
 
-  const handleClick = useCallback(() => {
-    setOpen(!open);
-  }, [open]);
+    const handleClick = useCallback(() => {
+      setOpen(!open_);
+    }, [open_]);
 
-  if (!children) {
+    if (!children) {
+      return (
+        <Link href={to} onClick={onClick} underline="none" ref={ref}>
+          <ListItem button dense classes={{ root: classes.item }} className={clsx({ [classes.selected]: active })}>
+            {icon ? (
+              <ListItemIcon classes={{ root: classes.icon }} className={clsx({ [classes.iconSelected]: active })}>
+                {icon}
+              </ListItemIcon>
+            ) : null}
+            <ListItemText
+              primary={
+                <Typography
+                  className={clsx(classes.label, { [classes.labelSelected]: active })}
+                  variant="subtitle1"
+                  component="span"
+                >
+                  {text}
+                </Typography>
+              }
+            />
+          </ListItem>
+        </Link>
+      );
+    }
+
     return (
-      <Link href={to} onClick={onClick} underline="none" ref={ref}>
-        <ListItem button dense classes={{ root: classes.item }}>
-          {icon ? <ListItemIcon classes={{ root: classes.icon }}>{icon}</ListItemIcon> : null}
+      <Fragment>
+        <ListItem button dense onClick={handleClick} classes={{ root: classes.item }} innerRef={ref}>
+          {icon ? (
+            <ListItemIcon classes={{ root: classes.icon }} className={clsx({ [classes.iconSelectedCollapse]: open_ })}>
+              {icon}
+            </ListItemIcon>
+          ) : null}
+
           <ListItemText
             primary={
               <Typography className={classes.label} variant="subtitle1" component="span">
@@ -68,33 +117,17 @@ export const SidebarItem: FC<SidebarItemProps> = React.forwardRef(({ text, icon,
               </Typography>
             }
           />
+          {open ? <ExpandLess className={classes.iconExpand} /> : <ExpandMore className={classes.iconExpand} />}
         </ListItem>
-      </Link>
+        <Collapse in={open_} timeout="auto" unmountOnExit className={classes.collapse}>
+          <List component="div" disablePadding dense className={classes.nestedWrapper}>
+            {children}
+          </List>
+        </Collapse>
+      </Fragment>
     );
-  }
-
-  return (
-    <Fragment>
-      <ListItem button dense onClick={handleClick} classes={{ root: classes.item }} innerRef={ref}>
-        {icon ? <ListItemIcon classes={{ root: classes.icon }}>{icon}</ListItemIcon> : null}
-
-        <ListItemText
-          primary={
-            <Typography className={classes.label} variant="subtitle1" component="span">
-              {text}
-            </Typography>
-          }
-        />
-        {open ? <ExpandLess className={classes.iconExpand} /> : <ExpandMore className={classes.iconExpand} />}
-      </ListItem>
-      <Collapse in={open} timeout="auto" unmountOnExit className={classes.collapse}>
-        <List component="div" disablePadding dense className={classes.nestedWrapper}>
-          {children}
-        </List>
-      </Collapse>
-    </Fragment>
-  );
-});
+  },
+);
 
 export const SidebarSpace = styled('div')({
   flex: 1,
