@@ -9,7 +9,6 @@ import AssessmentIcon from '@material-ui/icons/Assessment';
 import { Hidden } from '@material-ui/core';
 import { Sidebar } from './Sidebar';
 import { SidebarSpacer, SidebarSpace, SidebarItem, SidebarDivider } from './SidebarItems';
-import { SidebarContext } from './config';
 
 export default {
   title: 'Sidebar',
@@ -28,7 +27,7 @@ export const sidebar = () => (
     <SidebarSpacer />
     <SidebarItem text="Home" icon={<HomeIcon />} />
     <SidebarSpacer />
-    <SidebarItem text="Analytics" icon={<TimelineIcon />} open>
+    <SidebarItem text="Analytics" icon={<TimelineIcon />} open active>
       <SidebarItem text="Dashboard" icon={<DashboardIcon />} active />
       <SidebarItem text="Report" icon={<AssessmentIcon />} />
     </SidebarItem>

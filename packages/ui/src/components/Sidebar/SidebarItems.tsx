@@ -26,8 +26,8 @@ const useStyles = makeStyles((theme: AppTheme) => ({
   iconSelected: {
     color: fade(theme.palette.textContrast, 0.6),
   },
-  iconSelectedCollapse: {
-    color: fade(theme.palette.primary.main, 0.85),
+  selectedCollapse: {
+    color: `${fade(theme.palette.primary.main, 0.85)} !important`,
   },
   iconExpand: {
     color: fade(theme.palette.textContrast, 0.45),
@@ -105,14 +105,18 @@ export const SidebarItem: FC<SidebarItemProps> = React.forwardRef(
       <Fragment>
         <ListItem button dense onClick={handleClick} classes={{ root: classes.item }} innerRef={ref}>
           {icon ? (
-            <ListItemIcon classes={{ root: classes.icon }} className={clsx({ [classes.iconSelectedCollapse]: open_ })}>
+            <ListItemIcon classes={{ root: classes.icon }} className={clsx({ [classes.selectedCollapse]: active })}>
               {icon}
             </ListItemIcon>
           ) : null}
 
           <ListItemText
             primary={
-              <Typography className={classes.label} variant="subtitle1" component="span">
+              <Typography
+                className={clsx({ [classes.selectedCollapse]: active, [classes.labelSelected]: active }, classes.label)}
+                variant="subtitle1"
+                component="span"
+              >
                 {text}
               </Typography>
             }
