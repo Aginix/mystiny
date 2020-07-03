@@ -1,11 +1,31 @@
 import React from 'react';
-import { TextField } from '@material-ui/core';
+import { TextField, Divider } from '@material-ui/core';
 import FormLayout from '.';
 import { FormLayoutGroup } from './FormLayoutGroup';
 
 export default {
   title: 'FormLayout / Group',
 };
+
+export const defaultForm = () => (
+  <FormLayout>
+    <FormLayoutGroup title="Group Title">
+      <TextField size="small" label="Username" variant="outlined" fullWidth />
+    </FormLayoutGroup>
+    <Divider />
+    <FormLayoutGroup title="Group Title" helpText="Help text.">
+      <TextField size="small" label="Password" variant="outlined" fullWidth />
+    </FormLayoutGroup>
+    <FormLayoutGroup title="Group Title" helpText="Help text.">
+      <TextField size="small" label="Width" variant="outlined" fullWidth />
+      <TextField size="small" label="Height" variant="outlined" fullWidth />
+      <TextField size="small" label="Height" variant="outlined" fullWidth />
+    </FormLayoutGroup>
+    <TextField size="small" label="Height" variant="outlined" fullWidth />
+    <TextField size="small" label="Height" variant="outlined" fullWidth />
+    <TextField size="small" label="Height" variant="outlined" fullWidth />
+  </FormLayout>
+);
 
 export const twoColumns = () => (
   <FormLayout>
