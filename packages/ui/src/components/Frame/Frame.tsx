@@ -19,9 +19,10 @@ const useStyles = makeStyles((theme: Theme) => ({
     top: 'auto',
     bottom: 0,
     width: '100%',
+    zIndex: 1,
   },
   contentWithBottom: {
-    [theme.breakpoints.down('xs')]: {
+    [theme.breakpoints.down('sm')]: {
       marginBottom: theme.spacing(8),
     }
   },
