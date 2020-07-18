@@ -7,7 +7,6 @@ import { FormLayoutItem } from './FormLayoutItem';
 const useStyles = makeStyles((theme) => ({
   formLayout: {
     marginTop: -1 * theme.spacing(0),
-    marginLeft: -1 * theme.spacing(4),
   },
 }));
 
