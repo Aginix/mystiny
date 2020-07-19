@@ -21,7 +21,7 @@ const BoldHeader = withStyles((theme) => ({
   subheader: { paddingTop: theme.spacing(1) },
 }))(CardHeader);
 
-const CardActionsTopRight = withStyles((theme) => ({
+const CardActionsTopRight = withStyles(() => ({
   root: {
     display: 'inline-block',
     padding: 16,
