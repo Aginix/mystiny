@@ -1,6 +1,6 @@
 {
   "name": "@mystiny/ui",
-  "version": "1.4.3",
+  "version": "1.4.4",
   "description": "> TODO: description",
   "author": "Nonpawit Teerachetmongkol <nonpawit.tee@aginix.tech>",
   "homepage": "",
@@ -55,7 +55,7 @@
     "typescript": "^3.8.3"
   },
   "dependencies": {
-    "@mystiny/theme": "^1.4.3",
+    "@mystiny/theme": "^1.4.4",
     "clsx": "^1.1.0",
     "material-ui-popup-state": "^1.5.4"
   },
