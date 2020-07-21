@@ -7,6 +7,9 @@ export * from './Content';
 export { default as ContentHeader } from './ContentHeader';
 export * from './ContentHeader';
 
+export { default as DataField } from './DataField';
+export * from './DataField';
+
 export { default as ErrorBoundary } from './ErrorBoundary';
 export * from './ErrorBoundary';
 
