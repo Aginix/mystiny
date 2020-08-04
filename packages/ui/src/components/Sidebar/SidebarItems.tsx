@@ -80,7 +80,6 @@ export const SidebarItem: FC<SidebarItemProps> = React.forwardRef(
       return (
         <ListItem
           button
-          dense
           classes={{ root: classes.item }}
           className={clsx({ [classes.selected]: active })}
           {...(listItemProps as any)}
@@ -109,7 +108,6 @@ export const SidebarItem: FC<SidebarItemProps> = React.forwardRef(
       <Fragment>
         <ListItem
           button
-          dense
           onClick={handleClick}
           classes={{ root: classes.item }}
           innerRef={ref}
@@ -135,7 +133,7 @@ export const SidebarItem: FC<SidebarItemProps> = React.forwardRef(
           {open_ ? <ExpandLess className={classes.iconExpand} /> : <ExpandMore className={classes.iconExpand} />}
         </ListItem>
         <Collapse in={open_} timeout="auto" unmountOnExit className={classes.collapse}>
-          <List component="div" disablePadding dense className={classes.nestedWrapper}>
+          <List component="div" disablePadding dense={listItemProps.dense} className={classes.nestedWrapper}>
             {children}
           </List>
         </Collapse>
