@@ -1,7 +1,7 @@
 import React, { FC } from 'react';
 import clsx from 'clsx';
 import { makeStyles, Theme } from '@material-ui/core/styles';
-import { AppBar, CssBaseline, Toolbar, IconButton, NoSsr, Hidden } from '@material-ui/core';
+import { AppBar, CssBaseline, Toolbar, IconButton, NoSsr, Hidden, AppBarProps, ToolbarProps } from '@material-ui/core';
 import MenuIcon from '@material-ui/icons/Menu';
 import { sidebarConfig } from '../Sidebar';
 
@@ -62,9 +62,18 @@ export interface TopBarProps {
   showNavigationToggle?: boolean;
   /** A callback function that handles hiding and showing mobile navigation */
   onNavigationToggle?(): void;
+  AppBarProps?: AppBarProps;
+  ToolbarProps?: ToolbarProps;
 }
 
-const TopBar: FC<TopBarProps> = ({ children, onNavigationToggle, showNavigationToggle, open }) => {
+const TopBar: FC<TopBarProps> = ({
+  children,
+  onNavigationToggle,
+  showNavigationToggle,
+  open,
+  AppBarProps,
+  ToolbarProps,
+}) => {
   const classes = useStyles({});
 
   const navigationButtonMarkup = showNavigationToggle ? (
@@ -91,9 +100,10 @@ const TopBar: FC<TopBarProps> = ({ children, onNavigationToggle, showNavigationT
         className={clsx(classes.appBar, {
           [classes.appBarShift]: open,
         })}
+        {...AppBarProps}
       >
         <NoSsr>
-          <Toolbar>
+          <Toolbar {...ToolbarProps}>
             {navigationButtonMarkup}
             {children}
           </Toolbar>
