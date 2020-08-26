@@ -97,10 +97,10 @@ const TopBar: FC<TopBarProps> = ({
       <CssBaseline />
       <AppBar
         position="fixed"
-        className={clsx(classes.appBar, {
+        {...AppBarProps}
+        className={clsx(classes.appBar, AppBarProps?.className, {
           [classes.appBarShift]: open,
         })}
-        {...AppBarProps}
       >
         <NoSsr>
           <Toolbar {...ToolbarProps}>

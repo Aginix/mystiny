@@ -1,4 +1,4 @@
-import { makeStyles, Drawer, Hidden, NoSsr, Toolbar } from '@material-ui/core';
+import { makeStyles, Drawer, Hidden, NoSsr, Toolbar, DrawerProps } from '@material-ui/core';
 import { useTheme } from '@material-ui/core/styles';
 import useMediaQuery from '@material-ui/core/useMediaQuery';
 import clsx from 'clsx';
@@ -25,9 +25,10 @@ export interface SidebarProps {
   open?: boolean;
   handleClose?: () => void;
   addSpaceForTopBar?: boolean;
+  DrawerProps?: DrawerProps;
 }
 
-export const Sidebar: FC<SidebarProps> = ({ children, open, handleClose, addSpaceForTopBar }) => {
+export const Sidebar: FC<SidebarProps> = ({ children, open, handleClose, addSpaceForTopBar, DrawerProps }) => {
   const classes = useStyles();
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
@@ -41,13 +42,15 @@ export const Sidebar: FC<SidebarProps> = ({ children, open, handleClose, addSpac
           <Drawer
             variant="temporary"
             onClose={handleClose}
-            classes={{
-              paper: classes.drawerOpen,
-            }}
             open={isMobile ? open : false}
             container={container}
             ModalProps={{
               keepMounted: true, // Better open performance on mobile.
+            }}
+            {...DrawerProps}
+            classes={{
+              paper: classes.drawerOpen,
+              ...DrawerProps?.classes,
             }}
           >
             {children}
@@ -57,9 +60,11 @@ export const Sidebar: FC<SidebarProps> = ({ children, open, handleClose, addSpac
           <Drawer
             variant="persistent"
             open={open}
-            className={clsx(classes.drawer, classes.drawerOpen)}
+            {...DrawerProps}
+            className={clsx(classes.drawer, classes.drawerOpen, DrawerProps?.className)}
             classes={{
               paper: classes.drawerOpen,
+              ...DrawerProps?.classes,
             }}
           >
             {addSpaceForTopBar ? <Toolbar /> : null}
