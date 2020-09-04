@@ -98,7 +98,7 @@ const TopBar: FC<TopBarProps> = ({
       <AppBar
         position="fixed"
         {...AppBarProps}
-        className={clsx(classes.appBar, AppBarProps?.className, {
+        className={clsx(classes.appBar, {
           [classes.appBarShift]: open,
         })}
       >

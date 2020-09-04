@@ -11,7 +11,7 @@ export default {
 };
 
 export const defaultTopBar = () => (
-  <TopBar>
+  <TopBar AppBarProps={{ variant: 'elevation', color: 'inherit' }}>
     <Typography variant="h6" noWrap>
       Mystiny
     </Typography>

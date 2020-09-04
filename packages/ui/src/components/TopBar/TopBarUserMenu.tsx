@@ -12,7 +12,6 @@ const useStyles = makeStyles((theme: AppTheme) => ({
   button: {
     textAlign: 'left',
     textTransform: 'none',
-    color: theme.palette.getContrastText(theme.palette.appbar),
     [theme.breakpoints.down('xs')]: {
       paddingRight: 0,
     },
@@ -22,12 +21,11 @@ const useStyles = makeStyles((theme: AppTheme) => ({
     marginLeft: theme.spacing(1),
   },
   name: {
-    color: theme.palette.getContrastText(theme.palette.appbar),
+    color: 'inherit',
     fontWeight: 500,
     lineHeight: 1.3,
   },
   detail: {
-    color: fade(theme.palette.getContrastText(theme.palette.appbar), 0.75),
     fontSize: '0.835rem',
     fontWeight: 400,
     lineHeight: 1.4,

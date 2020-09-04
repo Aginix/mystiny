@@ -47,11 +47,10 @@ export const Sidebar: FC<SidebarProps> = ({ children, open, handleClose, addSpac
             ModalProps={{
               keepMounted: true, // Better open performance on mobile.
             }}
-            {...DrawerProps}
             classes={{
               paper: classes.drawerOpen,
-              ...DrawerProps?.classes,
             }}
+            {...DrawerProps}
           >
             {children}
           </Drawer>
@@ -60,12 +59,11 @@ export const Sidebar: FC<SidebarProps> = ({ children, open, handleClose, addSpac
           <Drawer
             variant="persistent"
             open={open}
-            {...DrawerProps}
-            className={clsx(classes.drawer, classes.drawerOpen, DrawerProps?.className)}
             classes={{
               paper: classes.drawerOpen,
-              ...DrawerProps?.classes,
             }}
+            {...DrawerProps}
+            className={clsx(classes.drawer, classes.drawerOpen)}
           >
             {addSpaceForTopBar ? <Toolbar /> : null}
             {children}
