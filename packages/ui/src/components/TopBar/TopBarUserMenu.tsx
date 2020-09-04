@@ -1,7 +1,18 @@
 import React, { useCallback } from 'react';
-import { ListItemIcon, Avatar, Menu, NoSsr, MenuItem, Tooltip, Typography, Button, Hidden } from '@material-ui/core';
-import { makeStyles, fade } from '@material-ui/core/styles';
-import { IconableAction } from '../types';
+import {
+  ListItemIcon,
+  Avatar,
+  Menu,
+  NoSsr,
+  MenuItem,
+  Tooltip,
+  Typography,
+  Button,
+  Hidden,
+  Box,
+} from '@material-ui/core';
+import { makeStyles } from '@material-ui/core/styles';
+import { SpacerAction, IconableAction } from '../types';
 import { AppTheme } from '@mystiny/theme';
 import { usePopupState, bindTrigger, bindMenu } from 'material-ui-popup-state/hooks';
 
@@ -33,7 +44,7 @@ const useStyles = makeStyles((theme: AppTheme) => ({
 }));
 
 export interface TopBarUserMenuProps {
-  actions?: IconableAction[];
+  actions?: (IconableAction | SpacerAction)[];
   name?: string;
   detail?: string;
   initials?: string;
@@ -42,7 +53,10 @@ export interface TopBarUserMenuProps {
 const TopBarUserMenu = ({ actions = [], name, detail, initials }: TopBarUserMenuProps) => {
   const classes = useStyles({});
   const ID = `TopBarUserMenu-${name}`;
-  const popupState = usePopupState({ variant: 'popover', popupId: 'user-menu' });
+  const popupState = usePopupState({
+    variant: 'popover',
+    popupId: 'user-menu',
+  });
 
   const handleClick = useCallback(
     (callback?: () => void) => () => {
@@ -63,19 +77,23 @@ const TopBarUserMenu = ({ actions = [], name, detail, initials }: TopBarUserMenu
       {...bindMenu(popupState)}
       id={menuId}
     >
-      {actions.map((action, index) => (
-        <MenuItem
-          key={index}
-          onMouseEnter={action.onMouseEnter}
-          onTouchStart={action.onTouchStart}
-          onClick={handleClick(action.onAction)}
-        >
-          {action.icon ? <ListItemIcon className={classes.icon}>{action.icon}</ListItemIcon> : null}
-          <Typography variant="inherit" noWrap>
-            {action.content}
-          </Typography>
-        </MenuItem>
-      ))}
+      {actions.map((action, index) =>
+        'content' in action ? (
+          <MenuItem
+            key={index}
+            onMouseEnter={action.onMouseEnter}
+            onTouchStart={action.onTouchStart}
+            onClick={handleClick(action.onAction)}
+          >
+            {action.icon ? <ListItemIcon className={classes.icon}>{action.icon}</ListItemIcon> : null}
+            <Typography variant="inherit" noWrap>
+              {action.content}
+            </Typography>
+          </MenuItem>
+        ) : 'spacer' in action && action.spacer ? (
+          <Box key={index} height={12} />
+        ) : null,
+      )}
     </Menu>
   );
 
@@ -89,20 +107,24 @@ const TopBarUserMenu = ({ actions = [], name, detail, initials }: TopBarUserMenu
       id={mobileMenuId}
     >
       {actions
-        .filter((action) => !action.hideOnMobile)
-        .map((action, index) => (
-          <MenuItem
-            key={index}
-            onMouseEnter={action.onMouseEnter}
-            onTouchStart={action.onTouchStart}
-            onClick={handleClick(action.onAction)}
-          >
-            {action.icon ? <ListItemIcon className={classes.icon}>{action.icon}</ListItemIcon> : null}
-            <Typography variant="inherit" noWrap>
-              {action.content}
-            </Typography>
-          </MenuItem>
-        ))}
+        .filter((action) => ('spacer' in action && action.spacer) || ('hideOnMobile' in action && !action.hideOnMobile))
+        .map((action, index) =>
+          'content' in action ? (
+            <MenuItem
+              key={index}
+              onMouseEnter={action.onMouseEnter}
+              onTouchStart={action.onTouchStart}
+              onClick={handleClick(action.onAction)}
+            >
+              {action.icon ? <ListItemIcon className={classes.icon}>{action.icon}</ListItemIcon> : null}
+              <Typography variant="inherit" noWrap>
+                {action.content}
+              </Typography>
+            </MenuItem>
+          ) : (
+            <Box key={index} height={12} />
+          ),
+        )}
     </Menu>
   );
 

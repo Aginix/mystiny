@@ -1,4 +1,5 @@
 import React from 'react';
+import EnterToAdminIcon from '@material-ui/icons/ExitToApp';
 import PersonIcon from '@material-ui/icons/Person';
 import TopBarUserMenu from './TopBarUserMenu';
 
@@ -12,7 +13,12 @@ export const withDetail = () => <TopBarUserMenu initials="N" detail="Nonpawit Te
 
 export const withActions = () => (
   <TopBarUserMenu
-    actions={[{ content: 'My Profile', icon: <PersonIcon fontSize="small" /> }, { content: 'Logout' }]}
+    actions={[
+      { content: 'Admin', icon: <EnterToAdminIcon fontSize="small" /> },
+      { spacer: true },
+      { content: 'My Profile', icon: <PersonIcon fontSize="small" /> },
+      { content: 'Logout' },
+    ]}
     initials="N"
     name="Nonpawit Teerachetmongkol"
     detail="Aginix Technologies"
