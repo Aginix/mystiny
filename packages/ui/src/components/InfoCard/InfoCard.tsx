@@ -1,12 +1,21 @@
 import React, { FC, ReactNode } from 'react';
-import { Card, CardActions, CardContent, CardHeader, Divider, withStyles, makeStyles } from '@material-ui/core';
+import {
+  Card,
+  CardActions,
+  CardContent,
+  CardHeader,
+  Divider,
+  withStyles,
+  makeStyles,
+  Toolbar,
+} from '@material-ui/core';
 import classNames from 'classnames';
 import ErrorBoundary from '../ErrorBoundary';
 import BottomLink, { BottomLinkProps } from '../BottomLink';
 
 const useStyles = makeStyles((theme) => ({
   header: {
-    padding: theme.spacing(2, 2, 2, 2.5),
+    padding: theme.spacing(2, 2, 2, 0),
   },
   noPadding: {
     padding: 0,
@@ -14,10 +23,13 @@ const useStyles = makeStyles((theme) => ({
       paddingBottom: 0,
     },
   },
+  toolbar: {
+    justifyContent: 'space-between',
+  },
 }));
 
 const BoldHeader = withStyles((theme) => ({
-  title: { fontWeight: 700 },
+  title: { fontWeight: 400 },
   subheader: { paddingTop: theme.spacing(1) },
 }))(CardHeader);
 
@@ -108,6 +120,7 @@ export type InfoCardProps = {
   actionsClassName?: string;
   actions?: ReactNode;
   cardClassName?: string;
+  actionTopRight?: ReactNode;
   actionsTopRight?: ReactNode;
   className?: string;
   noPadding?: boolean;
@@ -126,6 +139,7 @@ const InfoCard: FC<InfoCardProps> = ({
   actionsClassName,
   actions,
   cardClassName,
+  actionTopRight,
   actionsTopRight,
   className,
   noPadding,
@@ -156,18 +170,21 @@ const InfoCard: FC<InfoCardProps> = ({
   return (
     <Card style={calculatedStyle} className={className}>
       <ErrorBoundary slackChannel={slackChannel}>
-        {title && (
-          <>
-            <BoldHeader
-              className={classes.header}
-              title={title}
-              subheader={subheader}
-              style={{ display: 'inline-block', ...headerStyle }}
-              {...headerProps}
-            />
-            <Divider />
-          </>
-        )}
+        {title || actionTopRight ? (
+          <Toolbar className={classes.toolbar}>
+            {title ? (
+              <BoldHeader
+                className={classes.header}
+                title={title}
+                subheader={subheader}
+                style={{ display: 'inline-block', ...headerStyle }}
+                {...headerProps}
+              />
+            ) : null}
+            {actionTopRight}
+          </Toolbar>
+        ) : null}
+        <Divider />
         {actionsTopRight && <CardActionsTopRight>{actionsTopRight}</CardActionsTopRight>}
         {divider && <Divider />}
         <CardContent
