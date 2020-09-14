@@ -1,5 +1,5 @@
 import React, { FC, Fragment } from 'react';
-import clsx from 'clsx'
+import clsx from 'clsx';
 
 import { makeStyles, Theme } from '@material-ui/core/styles';
 import { sidebarConfig } from '../Sidebar';
@@ -24,7 +24,7 @@ const useStyles = makeStyles((theme: Theme) => ({
   contentWithBottom: {
     [theme.breakpoints.down('sm')]: {
       marginBottom: theme.spacing(8),
-    }
+    },
   },
 }));
 
@@ -49,20 +49,46 @@ export interface FrameProps {
    * @default false
    */
   showNavigationBottom?: boolean;
+
+  openNavigation?: boolean;
 }
 
-const Frame: FC<FrameProps> = ({ topBar, navigation, children, navigationBottom, showNavigationBottom }) => {
+const Frame: FC<FrameProps> = ({
+  topBar,
+  navigation,
+  children,
+  navigationBottom,
+  openNavigation,
+  showNavigationBottom,
+}) => {
   const classes = useStyles({});
   let navigationMarkup: React.ReactNode | null = null;
   let topBarMarkup: React.ReactNode | null = null;
   let topBarGutterMarkup: React.ReactNode | null = null;
   let navigationBottomMarkup: React.ReactNode | null = null;
   let hasNavigationBottom = showNavigationBottom && navigationBottom;
-  let contentMarkup = <div className={clsx(classes.content, { [classes.contentWithBottom]:  hasNavigationBottom })}>{children}</div>;
+  let contentMarkup = (
+    <div
+      className={clsx(classes.content, {
+        [classes.contentWithBottom]: hasNavigationBottom,
+      })}
+    >
+      {children}
+    </div>
+  );
 
   if (navigation) {
     navigationMarkup = <div className={classes.navigationWrapper}>{navigation}</div>;
-    contentMarkup = <div className={clsx(classes.contentWithDrawer, { [classes.contentWithBottom]:  hasNavigationBottom })}>{children}</div>;
+    contentMarkup = (
+      <div
+        className={clsx({
+          [classes.contentWithDrawer]: openNavigation,
+          [classes.contentWithBottom]: hasNavigationBottom,
+        })}
+      >
+        {children}
+      </div>
+    );
   }
 
   if (topBar) {
