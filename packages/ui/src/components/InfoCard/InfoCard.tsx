@@ -12,6 +12,7 @@ import {
 import classNames from 'classnames';
 import ErrorBoundary from '../ErrorBoundary';
 import BottomLink, { BottomLinkProps } from '../BottomLink';
+import { CardProps } from '@material-ui/core/Card';
 
 const useStyles = makeStyles((theme) => ({
   header: {
@@ -125,6 +126,7 @@ export type InfoCardProps = {
   actionsTopRight?: ReactNode;
   className?: string;
   noPadding?: boolean;
+  CardProps?: CardProps;
 };
 
 const InfoCard: FC<InfoCardProps> = ({
@@ -144,6 +146,7 @@ const InfoCard: FC<InfoCardProps> = ({
   actionsTopRight,
   className,
   noPadding,
+  CardProps,
 }) => {
   const classes = useStyles();
 
@@ -169,7 +172,7 @@ const InfoCard: FC<InfoCardProps> = ({
   }
 
   return (
-    <Card style={calculatedStyle} className={className}>
+    <Card style={calculatedStyle} className={className} {...CardProps}>
       <ErrorBoundary slackChannel={slackChannel}>
         {title || actionTopRight ? (
           <Toolbar className={classes.toolbar}>
