@@ -15,7 +15,7 @@ import BottomLink, { BottomLinkProps } from '../BottomLink';
 
 const useStyles = makeStyles((theme) => ({
   header: {
-    padding: theme.spacing(2, 2, 2, 0),
+    padding: theme.spacing(1, 2, 1, 0),
   },
   noPadding: {
     padding: 0,
@@ -25,12 +25,13 @@ const useStyles = makeStyles((theme) => ({
   },
   toolbar: {
     justifyContent: 'space-between',
+    [theme.breakpoints.up('md')]: { minHeight: 56 },
   },
 }));
 
-const BoldHeader = withStyles((theme) => ({
-  title: { fontWeight: 400 },
-  subheader: { paddingTop: theme.spacing(1) },
+const BoldHeader = withStyles(() => ({
+  title: { fontWeight: 400, fontSize: '1.2rem' },
+  subheader: {},
 }))(CardHeader);
 
 const CardActionsTopRight = withStyles(() => ({
