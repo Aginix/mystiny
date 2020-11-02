@@ -77,9 +77,13 @@ const TopBarUserMenu = ({ actions = [], name, detail, initials }: TopBarUserMenu
       {...bindMenu(popupState)}
       id={menuId}
     >
-      {actions.map((action, index) =>
-        'content' in action ? (
+      {actions.map((action, index) => {
+        if (action.hidden) {
+          return null;
+        }
+        return 'content' in action ? (
           <MenuItem
+            id={action.id}
             key={index}
             onMouseEnter={action.onMouseEnter}
             onTouchStart={action.onTouchStart}
@@ -92,8 +96,8 @@ const TopBarUserMenu = ({ actions = [], name, detail, initials }: TopBarUserMenu
           </MenuItem>
         ) : 'spacer' in action && action.spacer ? (
           <Box key={index} height={12} />
-        ) : null,
-      )}
+        ) : null;
+      })}
     </Menu>
   );
 
@@ -107,10 +111,16 @@ const TopBarUserMenu = ({ actions = [], name, detail, initials }: TopBarUserMenu
       id={mobileMenuId}
     >
       {actions
-        .filter((action) => ('spacer' in action && action.spacer) || ('hideOnMobile' in action && !action.hideOnMobile))
+        .filter(
+          (action) =>
+            !action.hidden ||
+            ('spacer' in action && action.spacer) ||
+            ('hideOnMobile' in action && !action.hideOnMobile),
+        )
         .map((action, index) =>
           'content' in action ? (
             <MenuItem
+              id={action.id}
               key={index}
               onMouseEnter={action.onMouseEnter}
               onTouchStart={action.onTouchStart}

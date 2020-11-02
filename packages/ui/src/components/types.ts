@@ -17,6 +17,8 @@ export interface BaseAction {
   onTouchStart?(): void;
   /** Hide on mobile */
   hideOnMobile?: boolean;
+  /** If hidden is true, the element will be hidden */
+  hidden?: boolean;
 }
 
 export interface Action extends BaseAction {}
@@ -27,4 +29,6 @@ export interface IconableAction extends Action {
 
 export interface SpacerAction {
   spacer?: boolean;
+  /** If hidden is true, the element will be hidden */
+  hidden?: boolean;
 }
